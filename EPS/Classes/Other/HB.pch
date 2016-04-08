@@ -1,0 +1,33 @@
+//
+//  HB.pch
+//  EPS
+//
+//  Created by 郝斌 on 15/7/4.
+//  Copyright (c) 2015年 hainx. All rights reserved.
+//
+
+#ifndef EPS_HB_pch
+#define EPS_HB_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "UIImage+HB.h"
+
+// 1.判断是否为IOS6
+#define IOS6 ([[UIDevice currentDevice].systemVersion doubleValue] < 7.0)
+
+// 2.获得RGB颜色
+#define HBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+// 3.系统主颜色
+#define HBColorDefault [UIColor colorWithRed:(17)/255.0 green:(150)/255.0 blue:(80)/255.0 alpha:1.0]
+
+// 3.自定义Log
+#ifdef DEBUG
+#define HBLog(...) NSLog(__VA_ARGS__)
+#else
+#define HBLog(...)
+#endif
+
+#endif
