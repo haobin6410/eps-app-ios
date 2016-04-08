@@ -27,14 +27,6 @@
 {
     if(_menuArray == nil)
     {
-//        NSMutableArray *mArray = [NSMutableArray array];
-//        NSArray *dicArray = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"menu.plist" ofType:nil]];
-//        for (NSDictionary *dict in dicArray){
-//            HBMenu *menu = [HBMenu menuWithDict:dict];
-//            [mArray addObject:menu];
-//        }
-//        _menuArray = mArray;
-        
         _menuArray = [HBMenuArray menuArray];
     }
     return _menuArray;
@@ -179,7 +171,7 @@
         //menuBtnView.backgroundColor = [UIColor greenColor];
         [contentView addSubview:menuBtnView];
         
-        // 2.添加菜单图标
+        // 2.添加菜单
         HBMenuButton *menuButton = [[HBMenuButton alloc] init];
         [menuButton setTitle:menu.title forState:UIControlStateNormal];
         [menuButton setTitle:menu.title forState:UIControlStateHighlighted];
@@ -191,7 +183,6 @@
         [menuButton setIconColor:[UIColor grayColor] forState:UIControlStateNormal];
         [menuButton setIconColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
         
-        //[menuIcon setBackgroundColor:[UIColor yellowColor]];
         CGFloat menuButtonX = 0;
         CGFloat menuButtonY = 0;
         CGFloat menuButtonW = menuBtnViewW;
@@ -199,23 +190,6 @@
         menuButton.frame = CGRectMake(menuButtonX, menuButtonY, menuButtonW, menuButtonH);
         [menuButton addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
         [menuBtnView addSubview:menuButton];
-        
-//        // 3.添加菜单名称
-//        UIButton *titleBtn = [[UIButton alloc]init];
-//        [titleBtn setTitle:menu.title forState:UIControlStateNormal];
-//        [titleBtn setTitle:menu.title forState:UIControlStateHighlighted];
-//        [titleBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-//        [titleBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
-//        titleBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-//        titleBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-//        CGFloat titleBtnX = 0;
-//        CGFloat titleBtnY = CGRectGetMaxY(menuIcon.frame);
-//        CGFloat titleBtnW = menuIconW;
-//        CGFloat titleBtnH = 24;
-//        titleBtn.frame = CGRectMake(titleBtnX, titleBtnY, titleBtnW, titleBtnH);
-//        [titleBtn addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
-//        [menuBtnView addSubview:titleBtn];
-        
     }
     
     // 内容View可以滚动的高度
