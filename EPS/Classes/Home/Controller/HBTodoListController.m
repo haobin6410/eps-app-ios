@@ -25,7 +25,6 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     UIBarButtonItem *leftBarButtonItem = [UIBarButtonItem itemWithTitle:@"返回" icon:@"back-icon" hightIcon:@"back-icon-selected" target:self action:@selector(back:)];
-    
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
 }
 

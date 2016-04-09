@@ -1,18 +1,19 @@
 //
-//  ProfileController.m
+//  HBProfileController.m
 //  EPS
 //
 //  Created by 郝斌 on 16/4/9.
 //  Copyright © 2016年 hainx. All rights reserved.
 //
 
-#import "ProfileController.h"
+#import "HBProfileController.h"
+#import "UIBarButtonItem+HB.h"
 
-@interface ProfileController ()
+@interface HBProfileController ()
 
 @end
 
-@implementation ProfileController
+@implementation HBProfileController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -20,36 +21,38 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *leftBarButtonItem = [UIBarButtonItem itemWithTitle:@"返回" icon:@"back-icon" hightIcon:@"back-icon-selected" target:self action:@selector(back:)];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    self.title = @"个人信息";
+}
+
+- (void)back:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return 1;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+    NSString *cellid = @"profile_cell_id";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid forIndexPath:indexPath];
+//    if(cell == nil)
+//    {
+//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid];
+//    }
+    return [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid];
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

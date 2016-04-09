@@ -1,5 +1,5 @@
 //
-//  ProfileController.h
+//  HBProfileController.h
 //  EPS
 //
 //  Created by 郝斌 on 16/4/9.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileController : UITableViewController
+@interface HBProfileController : UITableViewController
 
 @end

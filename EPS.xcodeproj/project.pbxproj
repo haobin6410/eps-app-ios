@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2552DB191CB8F47E00C4968A /* ProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2552DB181CB8F47E00C4968A /* ProfileController.m */; };
+		2552DB191CB8F47E00C4968A /* HBProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2552DB181CB8F47E00C4968A /* HBProfileController.m */; };
+		2552DB1C1CB91C6E00C4968A /* HBNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2552DB1B1CB91C6E00C4968A /* HBNavView.m */; };
 		256872ED1B48207700708165 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 256872EC1B48207700708165 /* Images.xcassets */; };
 		256873071B48251500708165 /* UIImage+HB.m in Sources */ = {isa = PBXBuildFile; fileRef = 256873061B48251500708165 /* UIImage+HB.m */; };
 		2568730B1B4849E700708165 /* UIBarButtonItem+HB.m in Sources */ = {isa = PBXBuildFile; fileRef = 2568730A1B4849E700708165 /* UIBarButtonItem+HB.m */; };
@@ -45,8 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2552DB171CB8F47E00C4968A /* ProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileController.h; sourceTree = "<group>"; };
-		2552DB181CB8F47E00C4968A /* ProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileController.m; sourceTree = "<group>"; };
+		2552DB171CB8F47E00C4968A /* HBProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBProfileController.h; sourceTree = "<group>"; };
+		2552DB181CB8F47E00C4968A /* HBProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBProfileController.m; sourceTree = "<group>"; };
+		2552DB1A1CB91C6E00C4968A /* HBNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBNavView.h; sourceTree = "<group>"; };
+		2552DB1B1CB91C6E00C4968A /* HBNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBNavView.m; sourceTree = "<group>"; };
 		256872EC1B48207700708165 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		256873051B48251500708165 /* UIImage+HB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HB.h"; sourceTree = "<group>"; };
 		256873061B48251500708165 /* UIImage+HB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HB.m"; sourceTree = "<group>"; };
@@ -300,8 +303,8 @@
 		25E452FC1CB8A5D000A46590 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2552DB171CB8F47E00C4968A /* ProfileController.h */,
-				2552DB181CB8F47E00C4968A /* ProfileController.m */,
+				2552DB171CB8F47E00C4968A /* HBProfileController.h */,
+				2552DB181CB8F47E00C4968A /* HBProfileController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -327,6 +330,8 @@
 				257CD20D1B7C25F6001059C3 /* HBIconButton.m */,
 				25A227DF1CB7B3CD0027BCE1 /* HBMenuButton.h */,
 				25A227E01CB7B3CE0027BCE1 /* HBMenuButton.m */,
+				2552DB1A1CB91C6E00C4968A /* HBNavView.h */,
+				2552DB1B1CB91C6E00C4968A /* HBNavView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 			files = (
 				256E1DCB1B45A6B40084EC78 /* HBTabBar.m in Sources */,
 				256873071B48251500708165 /* UIImage+HB.m in Sources */,
+				2552DB1C1CB91C6E00C4968A /* HBNavView.m in Sources */,
 				256E1DC51B45A3C10084EC78 /* HBTabBarViewController.m in Sources */,
 				2568730B1B4849E700708165 /* UIBarButtonItem+HB.m in Sources */,
 				25A227E11CB7B3D00027BCE1 /* HBMenuButton.m in Sources */,
@@ -445,7 +451,7 @@
 				257CD20E1B7C25F6001059C3 /* HBIconButton.m in Sources */,
 				256E1DCE1B45A6F70084EC78 /* HBTabBarButton.m in Sources */,
 				2578F26A1B49303F00C9C4AD /* HBHomeController.m in Sources */,
-				2552DB191CB8F47E00C4968A /* ProfileController.m in Sources */,
+				2552DB191CB8F47E00C4968A /* HBProfileController.m in Sources */,
 				256E1DD11B45A75B0084EC78 /* HBBadgeButton.m in Sources */,
 				256E1DBE1B45A1020084EC78 /* main.m in Sources */,
 				25F704181B85E4F800E671D6 /* HBMenuArray.m in Sources */,

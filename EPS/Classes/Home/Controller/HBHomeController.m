@@ -13,8 +13,10 @@
 #import "NSString+HB.h"
 #import "UIBarButtonItem+HB.h"
 #import "HBTodoListController.h"
+#import "HBProfileController.h"
+#import "HBNavView.h"
 
-@interface HBHomeController()
+@interface HBHomeController() <HBNavViewDelegate>
 
 @property (nonatomic, weak)UIView *navBar;
 
@@ -53,95 +55,16 @@
     self.navigationController.navigationBar.hidden = YES;
     
     // 2.添加自定义NavigationBar
-    UIView *navBar = [[UIView alloc] init];
-    CGFloat navBarXY = 0;
-    CGFloat navBarW = self.view.frame.size.width;
-    
-    // 2.1.添加公司名称label
-    UILabel *companyLabel = [[UILabel alloc] init];
-    companyLabel.text = @"北京一采通信息科技有限公司";
-    companyLabel.textColor = [UIColor whiteColor];
-    companyLabel.font = [UIFont systemFontOfSize:16];
-    
-    NSMutableDictionary *companyFontAttrDic = [NSMutableDictionary dictionary];
-    companyFontAttrDic[NSFontAttributeName] = companyLabel.font;
-    CGFloat companyLabelW = [companyLabel.text sizeWithAttributes:companyFontAttrDic].width;
-    CGFloat companyLabelX = (navBarW - companyLabelW) * 0.5;
-    CGFloat companyLabelY = 20;
-    CGFloat companyLabelH = 30;
-    companyLabel.frame = CGRectMake(companyLabelX, companyLabelY, companyLabelW, companyLabelH);
-    [navBar addSubview:companyLabel];
-    
-    // 2.2.添加用户信息
-    UIView *userView = [[UIView alloc] init];
-    CGFloat userViewBorderX = 20; //左右间距
-    CGFloat userViewBorderY = 15; //上下间距
-    CGFloat userViewW = navBarW - 2 * userViewBorderX;
-    CGFloat userViewH = 70;
-    CGFloat userViewX = userViewBorderX;
-    CGFloat userViewY = CGRectGetMaxY(companyLabel.frame) + userViewBorderY;
-    userView.frame = CGRectMake(userViewX, userViewY, userViewW, userViewH);
-    [navBar addSubview:userView];
-    
-    // 2.2.1.添加员工头像
-    UIImageView *userPhoto = [[UIImageView alloc] init];
-    userPhoto.image = [UIImage imageWithName:@"default_photo"];
-    CGFloat userPhotoX = 0;
-    CGFloat userPhotoY = 0;
-    CGFloat userPhotoWH = 70;
-    userPhoto.frame = CGRectMake(userPhotoX, userPhotoY, userPhotoWH, userPhotoWH);
-    // 变成圆形头像
-    userPhoto.layer.cornerRadius = 35;
-    userPhoto.layer.masksToBounds = YES;
-    [userView addSubview:userPhoto];
-    
-    // 2.2.2.添加员工名称
-    UILabel *nameLabel = [[UILabel alloc] init];
-    nameLabel.text = @"郝斌";
-    nameLabel.textColor = [UIColor whiteColor];
-    nameLabel.font = [UIFont systemFontOfSize:15];
-    
-    NSMutableDictionary *nameFontAttrDic = [NSMutableDictionary dictionary];
-    nameFontAttrDic[NSFontAttributeName] = nameLabel.font;
-    CGFloat nameLabelW = [nameLabel.text sizeWithAttributes:nameFontAttrDic].width;
-    CGFloat nameLabelX = CGRectGetMaxX(userPhoto.frame) + userViewBorderX;
-    CGFloat nameLabelY = userPhotoY + 10;
-    CGFloat nameLabelH = 26;
-    nameLabel.frame = CGRectMake(nameLabelX, nameLabelY, nameLabelW, nameLabelH);
-    [userView addSubview:nameLabel];
-    
-    // 2.2.3.添加业务角色名称
-    UILabel *roleLabel = [[UILabel alloc] init];
-    roleLabel.text = @"采购部 > 价格科";
-    roleLabel.textColor = [UIColor whiteColor];
-    roleLabel.font = [UIFont systemFontOfSize:14];
-    
-    NSMutableDictionary *roleFontAttrDic = [NSMutableDictionary dictionary];
-    roleFontAttrDic[NSFontAttributeName] = roleLabel.font;
-    CGFloat roleLabelW = [roleLabel.text sizeWithAttributes:roleFontAttrDic].width;
-    CGFloat roleLabelX = nameLabelX;
-    CGFloat roleLabelY = CGRectGetMaxY(nameLabel.frame);
-    CGFloat roleLabelH = 24;
-    roleLabel.frame = CGRectMake(roleLabelX, roleLabelY, roleLabelW, roleLabelH);
-    [userView addSubview:roleLabel];
-    
-    // 2.2.4.添加右箭头
-    UIImageView *rightView = [[UIImageView alloc] init];
-    rightView.image = [UIImage imageWithName:@"nav_right"];
-    rightView.contentMode = UIViewContentModeCenter;
-    CGFloat rightViewW = rightView.image.size.width;
-    CGFloat rightViewH = userViewH;
-    CGFloat rightViewX = userViewW - rightViewW;
-    CGFloat rightViewY = 0;
-    rightView.frame = CGRectMake(rightViewX, rightViewY, rightViewW, rightViewH);
-    [userView addSubview:rightView];
-    
-    // 2.自定义NavigationBar高度计算
-    CGFloat navBarH = CGRectGetMaxY(userView.frame) + userViewBorderY;
-    navBar.frame = CGRectMake(navBarXY, navBarXY, navBarW, navBarH);
-    navBar.backgroundColor = HBColorDefault;
+    HBNavView *navBar = [[HBNavView alloc] init];
     [self.view addSubview:navBar];
     self.navBar = navBar;
+    navBar.delegate = self;
+}
+
+- (void)navViewClick:(__autoreleasing id *)navView
+{
+    HBProfileController *profileController = [[HBProfileController alloc] init];
+    [self.navigationController pushViewController:profileController animated:YES];
 }
 
 - (void)setupMenuButton
