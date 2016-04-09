@@ -15,4 +15,11 @@
  */
 + (UIBarButtonItem *)itemWithIcon:(NSString *)icon hightIcon:(NSString *)hightIcon target:(id)target action:(SEL)action;
 
+/**
+ *  快速创建一个显示文字图片的item
+ */
++ (UIBarButtonItem *)itemWithTitle:(NSString *)title icon:(NSString *)icon hightIcon:(NSString *)hightIcon target:(id)target action:(SEL)action;
+
+
+
 @end

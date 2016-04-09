@@ -8,10 +8,12 @@
 
 #import "HBMenuButton.h"
 #import "HBIconButton.h"
+#import "HBBadgeButton.h"
 
 @interface HBMenuButton()
 
-@property (nonatomic, weak)HBIconButton *iconView;
+@property (nonatomic, weak) HBIconButton *iconView;
+@property (nonatomic, weak) HBBadgeButton *badgeButton;
 
 @end
 
@@ -23,10 +25,16 @@
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.font = [UIFont systemFontOfSize:14];
         
+        // 添加一个图标按钮
         HBIconButton *iconLabel = [[HBIconButton alloc] init];
         [iconLabel setUserInteractionEnabled:NO];
         [self addSubview: iconLabel];
         self.iconView = iconLabel;
+        
+        // 添加一个提醒数字按钮
+        HBBadgeButton *badgeButton = [[HBBadgeButton alloc] init];
+        [self addSubview:badgeButton];
+        self.badgeButton = badgeButton;
     }
     return self;
 }
@@ -44,6 +52,14 @@
     CGFloat iconViewW = self.frame.size.width;
     CGFloat iconViewH = self.frame.size.height - titleLabelH;
     self.iconView.frame = CGRectMake(iconViewX, iconViewY, iconViewW, iconViewH);
+    
+    // 设置提醒数字的位置
+    CGFloat badgeY = 10;
+    CGFloat badgeX = self.frame.size.width * 0.5 + 20;
+    CGRect badgeF = self.badgeButton.frame;
+    badgeF.origin.x = badgeX;
+    badgeF.origin.y = badgeY;
+    self.badgeButton.frame = badgeF;
 }
 
 -(void)setIcon:(NSString *)iconName forState:(UIControlState)state;
@@ -61,6 +77,13 @@
     [super setHighlighted:highlighted];
     
     [self.iconView setHighlighted:highlighted];
+}
+
+- (void)setBadgeValue:(NSString *)badgeValue
+{
+    _badgeValue = badgeValue;
+    
+    self.badgeButton.badgeValue = badgeValue;
 }
 
 

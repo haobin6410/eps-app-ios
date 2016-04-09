@@ -10,6 +10,8 @@
 
 @interface HBMenuButton : UIButton
 
+@property (nonatomic, strong) NSString *badgeValue;
+
 - (void)setIcon:(NSString *)iconName forState:(UIControlState)state;
 
 - (void)setIconColor:(UIColor *)color forState:(UIControlState)state;

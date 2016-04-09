@@ -12,6 +12,7 @@
 #import "HBMenu.h"
 #import "NSString+HB.h"
 #import "UIBarButtonItem+HB.h"
+#import "HBTodoListController.h"
 
 @interface HBHomeController()
 
@@ -188,6 +189,9 @@
         CGFloat menuButtonW = menuBtnViewW;
         CGFloat menuButtonH = menuBtnViewH;
         menuButton.frame = CGRectMake(menuButtonX, menuButtonY, menuButtonW, menuButtonH);
+        
+        menuButton.badgeValue = @"10";
+        
         [menuButton addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
         [menuBtnView addSubview:menuButton];
     }
@@ -200,8 +204,8 @@
 
 - (void)menuClick:(UIButton *)menuBtn
 {
-    UITableViewController *tabController = [[UITableViewController alloc] init];
-    [self.navigationController pushViewController:tabController animated:YES];
+    HBTodoListController *todoListController = [[HBTodoListController alloc] init];
+    [self.navigationController pushViewController:todoListController animated:YES];
 }
 
 @end

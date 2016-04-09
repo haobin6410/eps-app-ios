@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2552DB191CB8F47E00C4968A /* ProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2552DB181CB8F47E00C4968A /* ProfileController.m */; };
 		256872ED1B48207700708165 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 256872EC1B48207700708165 /* Images.xcassets */; };
 		256873071B48251500708165 /* UIImage+HB.m in Sources */ = {isa = PBXBuildFile; fileRef = 256873061B48251500708165 /* UIImage+HB.m */; };
 		2568730B1B4849E700708165 /* UIBarButtonItem+HB.m in Sources */ = {isa = PBXBuildFile; fileRef = 2568730A1B4849E700708165 /* UIBarButtonItem+HB.m */; };
-		256C67B41B871BE600AEB845 /* HBMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256C67B31B871BE600AEB845 /* HBMenuController.m */; };
 		256E1DAB1B4597640084EC78 /* EPSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 256E1DAA1B4597640084EC78 /* EPSTests.m */; };
 		256E1DBC1B45A07E0084EC78 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256E1DBB1B45A07E0084EC78 /* AppDelegate.m */; };
 		256E1DBE1B45A1020084EC78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 256E1DBD1B45A1020084EC78 /* main.m */; };
@@ -30,6 +30,7 @@
 		25D989411B7B297C009A561A /* 1ct-regular.svg in Resources */ = {isa = PBXBuildFile; fileRef = 25D9893C1B7B297C009A561A /* 1ct-regular.svg */; };
 		25D989421B7B297C009A561A /* 1ct-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25D9893D1B7B297C009A561A /* 1ct-regular.ttf */; };
 		25D989431B7B297C009A561A /* 1ct-regular.woff in Resources */ = {isa = PBXBuildFile; fileRef = 25D9893E1B7B297C009A561A /* 1ct-regular.woff */; };
+		25E453071CB8DBE000A46590 /* HBTodoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E453061CB8DBE000A46590 /* HBTodoListController.m */; };
 		25F704181B85E4F800E671D6 /* HBMenuArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F704171B85E4F800E671D6 /* HBMenuArray.m */; };
 /* End PBXBuildFile section */
 
@@ -44,14 +45,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2552DB171CB8F47E00C4968A /* ProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileController.h; sourceTree = "<group>"; };
+		2552DB181CB8F47E00C4968A /* ProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileController.m; sourceTree = "<group>"; };
 		256872EC1B48207700708165 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		256873051B48251500708165 /* UIImage+HB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HB.h"; sourceTree = "<group>"; };
 		256873061B48251500708165 /* UIImage+HB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HB.m"; sourceTree = "<group>"; };
 		256873081B4826BA00708165 /* HB.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HB.pch; sourceTree = "<group>"; };
 		256873091B4849E700708165 /* UIBarButtonItem+HB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+HB.h"; sourceTree = "<group>"; };
 		2568730A1B4849E700708165 /* UIBarButtonItem+HB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+HB.m"; sourceTree = "<group>"; };
-		256C67B21B871BE600AEB845 /* HBMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBMenuController.h; sourceTree = "<group>"; };
-		256C67B31B871BE600AEB845 /* HBMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBMenuController.m; sourceTree = "<group>"; };
 		256E1D8B1B4597640084EC78 /* EPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		256E1D8F1B4597640084EC78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		256E1DA41B4597640084EC78 /* EPSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EPSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +87,8 @@
 		25D9893C1B7B297C009A561A /* 1ct-regular.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "1ct-regular.svg"; sourceTree = "<group>"; };
 		25D9893D1B7B297C009A561A /* 1ct-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1ct-regular.ttf"; sourceTree = "<group>"; };
 		25D9893E1B7B297C009A561A /* 1ct-regular.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1ct-regular.woff"; sourceTree = "<group>"; };
+		25E453051CB8DBE000A46590 /* HBTodoListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBTodoListController.h; sourceTree = "<group>"; };
+		25E453061CB8DBE000A46590 /* HBTodoListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBTodoListController.m; sourceTree = "<group>"; };
 		25F704161B85E4F800E671D6 /* HBMenuArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBMenuArray.h; sourceTree = "<group>"; };
 		25F704171B85E4F800E671D6 /* HBMenuArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBMenuArray.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +184,7 @@
 			children = (
 				256E1DBF1B45A3430084EC78 /* Main */,
 				256E1DB51B45A07E0084EC78 /* Home */,
+				25E452FB1CB8A5D000A46590 /* Profile */,
 				256E1DB91B45A07E0084EC78 /* Other */,
 			);
 			path = Classes;
@@ -201,8 +205,8 @@
 			children = (
 				2578F2681B49303F00C9C4AD /* HBHomeController.h */,
 				2578F2691B49303F00C9C4AD /* HBHomeController.m */,
-				256C67B21B871BE600AEB845 /* HBMenuController.h */,
-				256C67B31B871BE600AEB845 /* HBMenuController.m */,
+				25E453051CB8DBE000A46590 /* HBTodoListController.h */,
+				25E453061CB8DBE000A46590 /* HBTodoListController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -281,6 +285,39 @@
 				25D9893E1B7B297C009A561A /* 1ct-regular.woff */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		25E452FB1CB8A5D000A46590 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				25E452FC1CB8A5D000A46590 /* Controller */,
+				25E452FD1CB8A5D000A46590 /* Model */,
+				25E452FE1CB8A5D000A46590 /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		25E452FC1CB8A5D000A46590 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2552DB171CB8F47E00C4968A /* ProfileController.h */,
+				2552DB181CB8F47E00C4968A /* ProfileController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		25E452FD1CB8A5D000A46590 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		25E452FE1CB8A5D000A46590 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		25FB48E81B4ADF0700D8A17B /* View */ = {
@@ -404,10 +441,11 @@
 				2568730B1B4849E700708165 /* UIBarButtonItem+HB.m in Sources */,
 				25A227E11CB7B3D00027BCE1 /* HBMenuButton.m in Sources */,
 				256E1DC81B45A4400084EC78 /* HBNavigationViewController.m in Sources */,
+				25E453071CB8DBE000A46590 /* HBTodoListController.m in Sources */,
 				257CD20E1B7C25F6001059C3 /* HBIconButton.m in Sources */,
 				256E1DCE1B45A6F70084EC78 /* HBTabBarButton.m in Sources */,
 				2578F26A1B49303F00C9C4AD /* HBHomeController.m in Sources */,
-				256C67B41B871BE600AEB845 /* HBMenuController.m in Sources */,
+				2552DB191CB8F47E00C4968A /* ProfileController.m in Sources */,
 				256E1DD11B45A75B0084EC78 /* HBBadgeButton.m in Sources */,
 				256E1DBE1B45A1020084EC78 /* main.m in Sources */,
 				25F704181B85E4F800E671D6 /* HBMenuArray.m in Sources */,
@@ -521,7 +559,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = EPS/Classes/Other/HB.pch;
 				INFOPLIST_FILE = EPS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -537,7 +575,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = EPS/Classes/Other/HB.pch;
 				INFOPLIST_FILE = EPS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -26,6 +26,17 @@
 
 - (void)setBadgeValue:(NSString *)badgeValue
 {
+    if (badgeValue) {
+        //判断是否为数字
+        NSString *bValue = [badgeValue stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]];
+        if(bValue.length == 0){
+            int num_bValue = [badgeValue intValue];
+            if(num_bValue > 999){
+                badgeValue = @"999+";
+            }
+        }
+    }
+    
     _badgeValue = [badgeValue copy];
     
     if (badgeValue) {
