@@ -63,7 +63,7 @@
 
 - (void)navViewClick:(__autoreleasing id *)navView
 {
-    HBProfileController *profileController = [[HBProfileController alloc] init];
+    HBProfileController *profileController = [[HBProfileController alloc] initWithStyle:UITableViewStyleGrouped];
     [self.navigationController pushViewController:profileController animated:YES];
 }
 
@@ -128,6 +128,7 @@
 - (void)menuClick:(UIButton *)menuBtn
 {
     HBTodoListController *todoListController = [[HBTodoListController alloc] init];
+    todoListController.title = menuBtn.titleLabel.text;
     [self.navigationController pushViewController:todoListController animated:YES];
 }
 
