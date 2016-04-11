@@ -58,8 +58,10 @@
      static NSString *cellid = @"profile_cell_id";
     
     // 创建cell方法一：
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
-//    cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid];
+//    if (cell  == nil) {
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
+//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid];
+//    }
     
     //创建cell方法二：
 //    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellid];
