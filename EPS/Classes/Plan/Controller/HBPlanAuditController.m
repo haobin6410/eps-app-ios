@@ -9,32 +9,49 @@
 #import "HBPlanAuditController.h"
 #import "UIBarButtonItem+HB.h"
 #import "AFNetworking.h"
+#import "MJRefresh.h"
 
 @interface HBPlanAuditController ()
 
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end
 
 @implementation HBPlanAuditController
 
-- (NSArray *)dataArray
+//- (NSArray *)dataArray
+//{
+//    if (_dataArray == nil) {
+//        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//        [manager GET:@"http://192.168.30.169:9001/api/plan/planaudit/" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+//            _dataArray = responseObject;
+//            [self.tableView reloadData];
+//            [self.tableView.mj_header endRefreshing];
+//            
+//        } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+//            NSLog(@"fail:%@", error);
+//        }];
+//    }
+//    return _dataArray;
+//}
+
+
+- (void)loadNewData
 {
-    if (_dataArray == nil) {
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        [manager GET:@"http://192.168.30.169:9001/api/plan/planaudit/" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-            _dataArray = responseObject;
-            [self.tableView reloadData];
-            
-        } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
-            NSLog(@"fail:%@", error);
-        }];
-    }
-    return _dataArray;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // 拿到当前的上拉刷新控件，结束刷新状态
+        [self.tableView.mj_header endRefreshing];
+    });
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    self.tableView.mj_header = header;
     
     //NSLog(@"%@", self.dataArray);
     
@@ -61,7 +78,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    int s = self.dataArray.count;
     return self.dataArray.count;
 }
 

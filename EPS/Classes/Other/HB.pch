@@ -13,6 +13,8 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import "UIImage+HB.h"
+#import "UIView+SDAutoLayout.h"
+#import "UITableView+SDAutoTableViewCellHeight.h"
 
 // 1.判断是否为IOS6
 #define IOS6 ([[UIDevice currentDevice].systemVersion doubleValue] < 7.0)
