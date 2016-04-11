@@ -1,19 +1,18 @@
 //
-//  PlanAuditController.m
+//  HBPlanPriceController.m
 //  EPS
 //
 //  Created by 郝斌 on 16/4/11.
 //  Copyright © 2016年 hainx. All rights reserved.
 //
 
-#import "PlanAuditController.h"
-#import "AFNetworking.h"
+#import "HBPlanPriceController.h"
 
-@interface PlanAuditController ()
+@interface HBPlanPriceController ()
 
 @end
 
-@implementation PlanAuditController
+@implementation HBPlanPriceController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,23 +32,24 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+#warning Incomplete implementation, return the number of sections
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+#warning Incomplete implementation, return the number of rows
+    return 0;
 }
 
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellid =@"plan_audit_cell_id";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
-    if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid];
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
+    // Configure the cell...
     
     return cell;
 }
+*/
 
 /*
 // Override to support conditional editing of the table view.

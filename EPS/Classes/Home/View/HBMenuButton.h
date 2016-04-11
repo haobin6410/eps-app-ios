@@ -11,6 +11,7 @@
 @interface HBMenuButton : UIButton
 
 @property (nonatomic, strong) NSString *badgeValue;
+@property (nonatomic, strong) NSString *btnCode;
 
 - (void)setIcon:(NSString *)iconName forState:(UIControlState)state;
 

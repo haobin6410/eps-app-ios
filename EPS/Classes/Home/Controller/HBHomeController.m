@@ -14,6 +14,7 @@
 #import "UIBarButtonItem+HB.h"
 #import "HBTodoListController.h"
 #import "HBProfileController.h"
+#import "HBPlanAuditController.h"
 #import "HBNavView.h"
 
 @interface HBHomeController() <HBNavViewDelegate>
@@ -113,6 +114,7 @@
         CGFloat menuButtonH = menuBtnViewH;
         menuButton.frame = CGRectMake(menuButtonX, menuButtonY, menuButtonW, menuButtonH);
         
+        menuButton.btnCode = menu.code;
         menuButton.badgeValue = @"10";
         
         [menuButton addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -125,11 +127,19 @@
     [self.view addSubview:contentView];
 }
 
-- (void)menuClick:(UIButton *)menuBtn
+- (void)menuClick:(HBMenuButton *)menuBtn
 {
-    HBTodoListController *todoListController = [[HBTodoListController alloc] init];
-    todoListController.title = menuBtn.titleLabel.text;
-    [self.navigationController pushViewController:todoListController animated:YES];
+    if ([menuBtn.btnCode isEqual: @"icon_ApplyAudit"]) {
+        HBPlanAuditController *planAuditController = [[HBPlanAuditController alloc] init];
+        planAuditController.title = menuBtn.titleLabel.text;
+        [self.navigationController pushViewController:planAuditController animated:YES];
+    }
+    else
+    {
+        HBTodoListController *todoListController = [[HBTodoListController alloc] init];
+        todoListController.title = menuBtn.titleLabel.text;
+        [self.navigationController pushViewController:todoListController animated:YES];
+    }
 }
 
 @end

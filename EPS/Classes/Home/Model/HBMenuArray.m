@@ -17,7 +17,7 @@
     
     HBMenu *menu = nil;
 
-    menu = [HBMenu menuWithCode:@"icon_ApplyBuy" title:@"计划审批" pic:@"\U0000e2a5"];
+    menu = [HBMenu menuWithCode:@"icon_ApplyAudit" title:@"计划审批" pic:@"\U0000e2a5"];
     [mArray addObject:menu];
     
     menu = [HBMenu menuWithCode:@"icon_ApplySend" title:@"待分派计划" pic:@"\U0000e2a2"];

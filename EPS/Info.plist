@@ -40,5 +40,10 @@
 		<string>1ct-regular.woff</string>
 		<string>1ct-regular.svg</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

@@ -1,5 +1,5 @@
 //
-//  PlanAssignController.h
+//  HBPlanAssignController.h
 //  EPS
 //
 //  Created by 郝斌 on 16/4/11.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlanAssignController : UITableViewController
+@interface HBPlanAssignController : UITableViewController
 
 @end

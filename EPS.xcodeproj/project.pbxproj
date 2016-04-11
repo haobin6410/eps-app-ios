@@ -13,10 +13,10 @@
 		256872ED1B48207700708165 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 256872EC1B48207700708165 /* Images.xcassets */; };
 		256873071B48251500708165 /* UIImage+HB.m in Sources */ = {isa = PBXBuildFile; fileRef = 256873061B48251500708165 /* UIImage+HB.m */; };
 		2568730B1B4849E700708165 /* UIBarButtonItem+HB.m in Sources */ = {isa = PBXBuildFile; fileRef = 2568730A1B4849E700708165 /* UIBarButtonItem+HB.m */; };
-		256B11491CBB473700A986F2 /* PlanAuditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B11481CBB473700A986F2 /* PlanAuditController.m */; };
-		256B114C1CBB47A800A986F2 /* PlanAssignController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B114B1CBB47A800A986F2 /* PlanAssignController.m */; };
-		256B114F1CBB47F400A986F2 /* PlanDisposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B114E1CBB47F400A986F2 /* PlanDisposeController.m */; };
-		256B11521CBB483B00A986F2 /* PlanPriceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B11511CBB483B00A986F2 /* PlanPriceController.m */; };
+		256B11491CBB473700A986F2 /* HBPlanAuditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B11481CBB473700A986F2 /* HBPlanAuditController.m */; };
+		256B114C1CBB47A800A986F2 /* HBPlanAssignController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B114B1CBB47A800A986F2 /* HBPlanAssignController.m */; };
+		256B114F1CBB47F400A986F2 /* HBPlanDisposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B114E1CBB47F400A986F2 /* HBPlanDisposeController.m */; };
+		256B11521CBB483B00A986F2 /* HBPlanPriceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B11511CBB483B00A986F2 /* HBPlanPriceController.m */; };
 		256B11671CBB6C2100A986F2 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B11551CBB6C2100A986F2 /* AFHTTPRequestOperation.m */; };
 		256B11681CBB6C2100A986F2 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B11571CBB6C2100A986F2 /* AFHTTPRequestOperationManager.m */; };
 		256B11691CBB6C2100A986F2 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B11591CBB6C2100A986F2 /* AFHTTPSessionManager.m */; };
@@ -71,14 +71,14 @@
 		256873081B4826BA00708165 /* HB.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HB.pch; sourceTree = "<group>"; };
 		256873091B4849E700708165 /* UIBarButtonItem+HB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+HB.h"; sourceTree = "<group>"; };
 		2568730A1B4849E700708165 /* UIBarButtonItem+HB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+HB.m"; sourceTree = "<group>"; };
-		256B11471CBB473700A986F2 /* PlanAuditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanAuditController.h; sourceTree = "<group>"; };
-		256B11481CBB473700A986F2 /* PlanAuditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanAuditController.m; sourceTree = "<group>"; };
-		256B114A1CBB47A800A986F2 /* PlanAssignController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanAssignController.h; sourceTree = "<group>"; };
-		256B114B1CBB47A800A986F2 /* PlanAssignController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanAssignController.m; sourceTree = "<group>"; };
-		256B114D1CBB47F400A986F2 /* PlanDisposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDisposeController.h; sourceTree = "<group>"; };
-		256B114E1CBB47F400A986F2 /* PlanDisposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDisposeController.m; sourceTree = "<group>"; };
-		256B11501CBB483B00A986F2 /* PlanPriceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceController.h; sourceTree = "<group>"; };
-		256B11511CBB483B00A986F2 /* PlanPriceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceController.m; sourceTree = "<group>"; };
+		256B11471CBB473700A986F2 /* HBPlanAuditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBPlanAuditController.h; sourceTree = "<group>"; };
+		256B11481CBB473700A986F2 /* HBPlanAuditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBPlanAuditController.m; sourceTree = "<group>"; };
+		256B114A1CBB47A800A986F2 /* HBPlanAssignController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBPlanAssignController.h; sourceTree = "<group>"; };
+		256B114B1CBB47A800A986F2 /* HBPlanAssignController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBPlanAssignController.m; sourceTree = "<group>"; };
+		256B114D1CBB47F400A986F2 /* HBPlanDisposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBPlanDisposeController.h; sourceTree = "<group>"; };
+		256B114E1CBB47F400A986F2 /* HBPlanDisposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBPlanDisposeController.m; sourceTree = "<group>"; };
+		256B11501CBB483B00A986F2 /* HBPlanPriceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBPlanPriceController.h; sourceTree = "<group>"; };
+		256B11511CBB483B00A986F2 /* HBPlanPriceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBPlanPriceController.m; sourceTree = "<group>"; };
 		256B11541CBB6C2100A986F2 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		256B11551CBB6C2100A986F2 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		256B11561CBB6C2100A986F2 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -213,14 +213,14 @@
 		256B113C1CBB46E500A986F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				256B11471CBB473700A986F2 /* PlanAuditController.h */,
-				256B11481CBB473700A986F2 /* PlanAuditController.m */,
-				256B114A1CBB47A800A986F2 /* PlanAssignController.h */,
-				256B114B1CBB47A800A986F2 /* PlanAssignController.m */,
-				256B114D1CBB47F400A986F2 /* PlanDisposeController.h */,
-				256B114E1CBB47F400A986F2 /* PlanDisposeController.m */,
-				256B11501CBB483B00A986F2 /* PlanPriceController.h */,
-				256B11511CBB483B00A986F2 /* PlanPriceController.m */,
+				256B11471CBB473700A986F2 /* HBPlanAuditController.h */,
+				256B11481CBB473700A986F2 /* HBPlanAuditController.m */,
+				256B114A1CBB47A800A986F2 /* HBPlanAssignController.h */,
+				256B114B1CBB47A800A986F2 /* HBPlanAssignController.m */,
+				256B114D1CBB47F400A986F2 /* HBPlanDisposeController.h */,
+				256B114E1CBB47F400A986F2 /* HBPlanDisposeController.m */,
+				256B11501CBB483B00A986F2 /* HBPlanPriceController.h */,
+				256B11511CBB483B00A986F2 /* HBPlanPriceController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -327,6 +327,13 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		256B11701CBBAADF00A986F2 /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Refresh;
+			sourceTree = "<group>";
+		};
 		256E1D821B4597640084EC78 = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				256873021B48243B00708165 /* Category */,
+				256B11701CBBAADF00A986F2 /* Refresh */,
 				256B11531CBB6C2100A986F2 /* AFNetworking */,
 				256E1DBA1B45A07E0084EC78 /* AppDelegate.h */,
 				256E1DBB1B45A07E0084EC78 /* AppDelegate.m */,
@@ -657,7 +665,7 @@
 				256E1DCE1B45A6F70084EC78 /* HBTabBarButton.m in Sources */,
 				256B116B1CBB6C2100A986F2 /* AFSecurityPolicy.m in Sources */,
 				256B116F1CBB6C2100A986F2 /* AFURLSessionManager.m in Sources */,
-				256B114C1CBB47A800A986F2 /* PlanAssignController.m in Sources */,
+				256B114C1CBB47A800A986F2 /* HBPlanAssignController.m in Sources */,
 				2578F26A1B49303F00C9C4AD /* HBHomeController.m in Sources */,
 				256B11691CBB6C2100A986F2 /* AFHTTPSessionManager.m in Sources */,
 				2552DB191CB8F47E00C4968A /* HBProfileController.m in Sources */,
@@ -666,13 +674,13 @@
 				256B11681CBB6C2100A986F2 /* AFHTTPRequestOperationManager.m in Sources */,
 				256B116D1CBB6C2100A986F2 /* AFURLRequestSerialization.m in Sources */,
 				256E1DBE1B45A1020084EC78 /* main.m in Sources */,
-				256B11521CBB483B00A986F2 /* PlanPriceController.m in Sources */,
+				256B11521CBB483B00A986F2 /* HBPlanPriceController.m in Sources */,
 				25F704181B85E4F800E671D6 /* HBMenuArray.m in Sources */,
 				2578F9B61B8485EB006D4F4D /* NSString+HB.m in Sources */,
 				2578F9B31B845A7C006D4F4D /* HBMenu.m in Sources */,
 				2552DB231CBA837400C4968A /* HBTodoListController.m in Sources */,
-				256B11491CBB473700A986F2 /* PlanAuditController.m in Sources */,
-				256B114F1CBB47F400A986F2 /* PlanDisposeController.m in Sources */,
+				256B11491CBB473700A986F2 /* HBPlanAuditController.m in Sources */,
+				256B114F1CBB47F400A986F2 /* HBPlanDisposeController.m in Sources */,
 				256E1DBC1B45A07E0084EC78 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

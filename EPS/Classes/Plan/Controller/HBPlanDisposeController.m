@@ -1,18 +1,18 @@
 //
-//  PlanAssignController.m
+//  HBPlanDisposeController.m
 //  EPS
 //
 //  Created by 郝斌 on 16/4/11.
 //  Copyright © 2016年 hainx. All rights reserved.
 //
 
-#import "PlanAssignController.h"
+#import "HBPlanDisposeController.h"
 
-@interface PlanAssignController ()
+@interface HBPlanDisposeController ()
 
 @end
 
-@implementation PlanAssignController
+@implementation HBPlanDisposeController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

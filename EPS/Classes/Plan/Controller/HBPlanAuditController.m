@@ -1,27 +1,52 @@
 //
-//  PlanPriceController.m
+//  HBPlanAuditController.m
 //  EPS
 //
 //  Created by 郝斌 on 16/4/11.
 //  Copyright © 2016年 hainx. All rights reserved.
 //
 
-#import "PlanPriceController.h"
+#import "HBPlanAuditController.h"
+#import "UIBarButtonItem+HB.h"
+#import "AFNetworking.h"
 
-@interface PlanPriceController ()
+@interface HBPlanAuditController ()
+
+@property (nonatomic, strong) NSArray *dataArray;
 
 @end
 
-@implementation PlanPriceController
+@implementation HBPlanAuditController
+
+- (NSArray *)dataArray
+{
+    if (_dataArray == nil) {
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        [manager GET:@"http://192.168.30.169:9001/api/plan/planaudit/" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+            _dataArray = responseObject;
+            [self.tableView reloadData];
+            
+        } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+            NSLog(@"fail:%@", error);
+        }];
+    }
+    return _dataArray;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //NSLog(@"%@", self.dataArray);
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *leftBarButtonItem = [UIBarButtonItem itemWithTitle:@"返回" icon:@"back-icon" hightIcon:@"back-icon-selected" target:self action:@selector(back:)];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+}
+
+- (void)back:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,24 +57,28 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    int s = self.dataArray.count;
+    return self.dataArray.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *cellid =@"plan_audit_cell_id";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
+    if(cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid];
+        
+        NSDictionary *dic = self.dataArray[indexPath.row];
+        cell.textLabel.text = dic[@"MaterialCode"];
+        cell.detailTextLabel.text = dic[@"MaterialDesc"];
+    }
     
-    // Configure the cell...
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
