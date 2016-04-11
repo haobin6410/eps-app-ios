@@ -120,7 +120,7 @@
     }
     
     // 内容View可以滚动的高度
-    CGFloat menuBtnViewContentH = CGRectGetMaxY([[contentView subviews] lastObject].frame) + menuBtnViewPadding;
+    CGFloat menuBtnViewContentH = CGRectGetMaxY([[[contentView subviews] lastObject] frame]) + menuBtnViewPadding;
     contentView.contentSize = CGSizeMake(menuBtnViewContentW, menuBtnViewContentH);
     [self.view addSubview:contentView];
 }
