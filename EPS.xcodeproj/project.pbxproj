@@ -13,6 +13,10 @@
 		256872ED1B48207700708165 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 256872EC1B48207700708165 /* Images.xcassets */; };
 		256873071B48251500708165 /* UIImage+HB.m in Sources */ = {isa = PBXBuildFile; fileRef = 256873061B48251500708165 /* UIImage+HB.m */; };
 		2568730B1B4849E700708165 /* UIBarButtonItem+HB.m in Sources */ = {isa = PBXBuildFile; fileRef = 2568730A1B4849E700708165 /* UIBarButtonItem+HB.m */; };
+		256B11491CBB473700A986F2 /* PlanAuditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B11481CBB473700A986F2 /* PlanAuditController.m */; };
+		256B114C1CBB47A800A986F2 /* PlanAssignController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B114B1CBB47A800A986F2 /* PlanAssignController.m */; };
+		256B114F1CBB47F400A986F2 /* PlanDisposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B114E1CBB47F400A986F2 /* PlanDisposeController.m */; };
+		256B11521CBB483B00A986F2 /* PlanPriceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B11511CBB483B00A986F2 /* PlanPriceController.m */; };
 		256E1DAB1B4597640084EC78 /* EPSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 256E1DAA1B4597640084EC78 /* EPSTests.m */; };
 		256E1DBC1B45A07E0084EC78 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256E1DBB1B45A07E0084EC78 /* AppDelegate.m */; };
 		256E1DBE1B45A1020084EC78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 256E1DBD1B45A1020084EC78 /* main.m */; };
@@ -58,6 +62,14 @@
 		256873081B4826BA00708165 /* HB.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HB.pch; sourceTree = "<group>"; };
 		256873091B4849E700708165 /* UIBarButtonItem+HB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+HB.h"; sourceTree = "<group>"; };
 		2568730A1B4849E700708165 /* UIBarButtonItem+HB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+HB.m"; sourceTree = "<group>"; };
+		256B11471CBB473700A986F2 /* PlanAuditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanAuditController.h; sourceTree = "<group>"; };
+		256B11481CBB473700A986F2 /* PlanAuditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanAuditController.m; sourceTree = "<group>"; };
+		256B114A1CBB47A800A986F2 /* PlanAssignController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanAssignController.h; sourceTree = "<group>"; };
+		256B114B1CBB47A800A986F2 /* PlanAssignController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanAssignController.m; sourceTree = "<group>"; };
+		256B114D1CBB47F400A986F2 /* PlanDisposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDisposeController.h; sourceTree = "<group>"; };
+		256B114E1CBB47F400A986F2 /* PlanDisposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDisposeController.m; sourceTree = "<group>"; };
+		256B11501CBB483B00A986F2 /* PlanPriceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceController.h; sourceTree = "<group>"; };
+		256B11511CBB483B00A986F2 /* PlanPriceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceController.m; sourceTree = "<group>"; };
 		256E1D8B1B4597640084EC78 /* EPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		256E1D8F1B4597640084EC78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		256E1DA41B4597640084EC78 /* EPSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EPSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +172,107 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		256B113B1CBB46E500A986F2 /* Plan */ = {
+			isa = PBXGroup;
+			children = (
+				256B113C1CBB46E500A986F2 /* Controller */,
+				256B113D1CBB46E500A986F2 /* Model */,
+				256B113E1CBB46E500A986F2 /* View */,
+			);
+			path = Plan;
+			sourceTree = "<group>";
+		};
+		256B113C1CBB46E500A986F2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				256B11471CBB473700A986F2 /* PlanAuditController.h */,
+				256B11481CBB473700A986F2 /* PlanAuditController.m */,
+				256B114A1CBB47A800A986F2 /* PlanAssignController.h */,
+				256B114B1CBB47A800A986F2 /* PlanAssignController.m */,
+				256B114D1CBB47F400A986F2 /* PlanDisposeController.h */,
+				256B114E1CBB47F400A986F2 /* PlanDisposeController.m */,
+				256B11501CBB483B00A986F2 /* PlanPriceController.h */,
+				256B11511CBB483B00A986F2 /* PlanPriceController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		256B113D1CBB46E500A986F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		256B113E1CBB46E500A986F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		256B113F1CBB46E500A986F2 /* Prcing */ = {
+			isa = PBXGroup;
+			children = (
+				256B11401CBB46E500A986F2 /* Controller */,
+				256B11411CBB46E500A986F2 /* Model */,
+				256B11421CBB46E500A986F2 /* View */,
+			);
+			path = Prcing;
+			sourceTree = "<group>";
+		};
+		256B11401CBB46E500A986F2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		256B11411CBB46E500A986F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		256B11421CBB46E500A986F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		256B11431CBB46E500A986F2 /* Supplier */ = {
+			isa = PBXGroup;
+			children = (
+				256B11441CBB46E500A986F2 /* Controller */,
+				256B11451CBB46E500A986F2 /* Model */,
+				256B11461CBB46E500A986F2 /* View */,
+			);
+			path = Supplier;
+			sourceTree = "<group>";
+		};
+		256B11441CBB46E500A986F2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		256B11451CBB46E500A986F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		256B11461CBB46E500A986F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		256E1D821B4597640084EC78 = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +334,9 @@
 				256E1DBF1B45A3430084EC78 /* Main */,
 				256E1DB51B45A07E0084EC78 /* Home */,
 				25E452FB1CB8A5D000A46590 /* Profile */,
+				256B113B1CBB46E500A986F2 /* Plan */,
+				256B113F1CBB46E500A986F2 /* Prcing */,
+				256B11431CBB46E500A986F2 /* Supplier */,
 				2552DB1D1CBA837400C4968A /* Todo */,
 				256E1DB91B45A07E0084EC78 /* Other */,
 			);
@@ -481,14 +597,18 @@
 				256E1DC81B45A4400084EC78 /* HBNavigationViewController.m in Sources */,
 				257CD20E1B7C25F6001059C3 /* HBIconButton.m in Sources */,
 				256E1DCE1B45A6F70084EC78 /* HBTabBarButton.m in Sources */,
+				256B114C1CBB47A800A986F2 /* PlanAssignController.m in Sources */,
 				2578F26A1B49303F00C9C4AD /* HBHomeController.m in Sources */,
 				2552DB191CB8F47E00C4968A /* HBProfileController.m in Sources */,
 				256E1DD11B45A75B0084EC78 /* HBBadgeButton.m in Sources */,
 				256E1DBE1B45A1020084EC78 /* main.m in Sources */,
+				256B11521CBB483B00A986F2 /* PlanPriceController.m in Sources */,
 				25F704181B85E4F800E671D6 /* HBMenuArray.m in Sources */,
 				2578F9B61B8485EB006D4F4D /* NSString+HB.m in Sources */,
 				2578F9B31B845A7C006D4F4D /* HBMenu.m in Sources */,
 				2552DB231CBA837400C4968A /* HBTodoListController.m in Sources */,
+				256B11491CBB473700A986F2 /* PlanAuditController.m in Sources */,
+				256B114F1CBB47F400A986F2 /* PlanDisposeController.m in Sources */,
 				256E1DBC1B45A07E0084EC78 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
