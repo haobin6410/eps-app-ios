@@ -8,8 +8,9 @@
 
 #import "HBPlanAuditController.h"
 #import "UIBarButtonItem+HB.h"
-//#import <AFNetworking.h>
-//#import <MJRefresh.h>
+#import <AFNetworking.h>
+#import <MJRefresh.h>
+#import <MBProgressHUD.h>
 
 @interface HBPlanAuditController ()
 
@@ -19,39 +20,67 @@
 
 @implementation HBPlanAuditController
 
-//- (NSArray *)dataArray
-//{
-//    if (_dataArray == nil) {
-//        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//        [manager GET:@"http://192.168.30.169:9001/api/plan/planaudit/" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-//            _dataArray = responseObject;
-//            [self.tableView reloadData];
-//            [self.tableView.mj_header endRefreshing];
-//            
-//        } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
-//            NSLog(@"fail:%@", error);
-//        }];
-//    }
-//    return _dataArray;
-//}
-
+- (NSMutableArray *)dataArray
+{
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
 
 - (void)loadNewData
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 刷新表格
-        [self.tableView reloadData];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:@"http://119.57.160.154:8045/api/plan/planaudit/" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
-        // 拿到当前的上拉刷新控件，结束刷新状态
-//        [self.tableView.mj_header endRefreshing];
-    });
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSArray *objects = (NSArray *)responseObject;
+        NSRange range = NSMakeRange(0,  objects.count);
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+        [self.dataArray insertObjects:objects atIndexes:indexSet];
+        
+        [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        MBProgressHUD *hud = [[MBProgressHUD alloc] init];
+        hud.labelText = [NSString stringWithFormat:@"%@", error];
+    }];
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//    });
+}
+
+- (void)loadMoreData
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:@"http://119.57.160.154:8045/api/plan/planaudit/" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [self.dataArray addObjectsFromArray:responseObject];
+        [self.tableView reloadData];
+        [self.tableView.mj_footer endRefreshing];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        MBProgressHUD *hud = [[MBProgressHUD alloc] init];
+        hud.labelText = [NSString stringWithFormat:@"%@", error];
+    }];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-//    self.tableView.mj_header = header;
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    
+    [header beginRefreshing];
+    
+    self.tableView.mj_header = header;
+    
+    
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    
+    self.tableView.mj_footer = footer;
     
     //NSLog(@"%@", self.dataArray);
     
