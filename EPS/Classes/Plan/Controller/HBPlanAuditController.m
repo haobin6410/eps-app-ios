@@ -8,8 +8,8 @@
 
 #import "HBPlanAuditController.h"
 #import "UIBarButtonItem+HB.h"
-#import <AFNetworking.h>
-#import <MJRefresh.h>
+//#import <AFNetworking.h>
+//#import <MJRefresh.h>
 
 @interface HBPlanAuditController ()
 
@@ -43,15 +43,15 @@
         [self.tableView reloadData];
         
         // 拿到当前的上拉刷新控件，结束刷新状态
-        [self.tableView.mj_header endRefreshing];
+//        [self.tableView.mj_header endRefreshing];
     });
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-    self.tableView.mj_header = header;
+//    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+//    self.tableView.mj_header = header;
     
     //NSLog(@"%@", self.dataArray);
     
