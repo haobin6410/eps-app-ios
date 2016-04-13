@@ -8,9 +8,9 @@
 
 #import "HBPlanAuditController.h"
 #import "UIBarButtonItem+HB.h"
-#import <AFNetworking.h>
+#import "HBHttp.h"
 #import <MJRefresh.h>
-#import <MBProgressHUD.h>
+#import "HBShow.h"
 
 @interface HBPlanAuditController ()
 
@@ -30,10 +30,7 @@
 
 - (void)loadNewData
 {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:@"http://119.57.160.154:8045/api/plan/planaudit/" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [HBHttp GET:@"/api/plan/planaudit/" parameters:nil success:^(id responseObject) {
         NSArray *objects = (NSArray *)responseObject;
         NSRange range = NSMakeRange(0,  objects.count);
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
@@ -41,35 +38,26 @@
         
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        MBProgressHUD *hud = [[MBProgressHUD alloc] init];
-        hud.labelText = [NSString stringWithFormat:@"%@", error];
     }];
-    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//
-//    });
 }
 
 - (void)loadMoreData
 {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:@"http://119.57.160.154:8045/api/plan/planaudit/" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [HBHttp GET:@"/api/plan/planaudit/" parameters:nil success:^(id responseObject) {
         [self.dataArray addObjectsFromArray:responseObject];
         [self.tableView reloadData];
         [self.tableView.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        MBProgressHUD *hud = [[MBProgressHUD alloc] init];
-        hud.labelText = [NSString stringWithFormat:@"%@", error];
     }];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [HBShow showFailure:@"成功了"];
     
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     

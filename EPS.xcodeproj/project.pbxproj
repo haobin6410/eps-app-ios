@@ -37,6 +37,8 @@
 		25D989421B7B297C009A561A /* 1ct-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25D9893D1B7B297C009A561A /* 1ct-regular.ttf */; };
 		25D989431B7B297C009A561A /* 1ct-regular.woff in Resources */ = {isa = PBXBuildFile; fileRef = 25D9893E1B7B297C009A561A /* 1ct-regular.woff */; };
 		25F704181B85E4F800E671D6 /* HBMenuArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F704171B85E4F800E671D6 /* HBMenuArray.m */; };
+		25FAB31E1CBE7F5D00BBAE7D /* HBHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAB31D1CBE7F5D00BBAE7D /* HBHttp.m */; };
+		25FAB3211CBE7F9400BBAE7D /* HBShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAB3201CBE7F9400BBAE7D /* HBShow.m */; };
 		B2A6EC25D894A429C04EC865 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 336448725E03B2056109408C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +110,10 @@
 		25D9893E1B7B297C009A561A /* 1ct-regular.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1ct-regular.woff"; sourceTree = "<group>"; };
 		25F704161B85E4F800E671D6 /* HBMenuArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBMenuArray.h; sourceTree = "<group>"; };
 		25F704171B85E4F800E671D6 /* HBMenuArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBMenuArray.m; sourceTree = "<group>"; };
+		25FAB31C1CBE7F5D00BBAE7D /* HBHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBHttp.h; sourceTree = "<group>"; };
+		25FAB31D1CBE7F5D00BBAE7D /* HBHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBHttp.m; sourceTree = "<group>"; };
+		25FAB31F1CBE7F9400BBAE7D /* HBShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBShow.h; sourceTree = "<group>"; };
+		25FAB3201CBE7F9400BBAE7D /* HBShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBShow.m; sourceTree = "<group>"; };
 		336448725E03B2056109408C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE36AD022C2DAD492BC9DD1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -383,6 +389,7 @@
 		256E1DB91B45A07E0084EC78 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				25FAB31B1CBE7F3D00BBAE7D /* Libs */,
 				256873021B48243B00708165 /* Category */,
 				256E1DBA1B45A07E0084EC78 /* AppDelegate.h */,
 				256E1DBB1B45A07E0084EC78 /* AppDelegate.m */,
@@ -476,6 +483,17 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		25FAB31B1CBE7F3D00BBAE7D /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				25FAB31C1CBE7F5D00BBAE7D /* HBHttp.h */,
+				25FAB31D1CBE7F5D00BBAE7D /* HBHttp.m */,
+				25FAB31F1CBE7F9400BBAE7D /* HBShow.h */,
+				25FAB3201CBE7F9400BBAE7D /* HBShow.m */,
+			);
+			path = Libs;
 			sourceTree = "<group>";
 		};
 		25FB48E81B4ADF0700D8A17B /* View */ = {
@@ -669,6 +687,7 @@
 				256E1DC51B45A3C10084EC78 /* HBTabBarViewController.m in Sources */,
 				2568730B1B4849E700708165 /* UIBarButtonItem+HB.m in Sources */,
 				25A227E11CB7B3D00027BCE1 /* HBMenuButton.m in Sources */,
+				25FAB3211CBE7F9400BBAE7D /* HBShow.m in Sources */,
 				256E1DC81B45A4400084EC78 /* HBNavigationViewController.m in Sources */,
 				257CD20E1B7C25F6001059C3 /* HBIconButton.m in Sources */,
 				256E1DCE1B45A6F70084EC78 /* HBTabBarButton.m in Sources */,
@@ -683,6 +702,7 @@
 				2578F9B31B845A7C006D4F4D /* HBMenu.m in Sources */,
 				2552DB231CBA837400C4968A /* HBTodoListController.m in Sources */,
 				256B11491CBB473700A986F2 /* HBPlanAuditController.m in Sources */,
+				25FAB31E1CBE7F5D00BBAE7D /* HBHttp.m in Sources */,
 				256B114F1CBB47F400A986F2 /* HBPlanDisposeController.m in Sources */,
 				256E1DBC1B45A07E0084EC78 /* AppDelegate.m in Sources */,
 			);
