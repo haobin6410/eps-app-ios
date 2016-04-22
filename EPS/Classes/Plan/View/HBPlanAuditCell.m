@@ -11,6 +11,7 @@
 #import "HBPlanModel.h"
 #import "HBRadioButton.h"
 #import "UISwitch+HB.h"
+#import "HBPlanAuditController.h"
 
 @interface HBPlanAuditCell()
 
@@ -23,7 +24,7 @@
 
 @end
 
-@implementation HBPlanAuditCell
+@implementation HBPlanAuditCell 
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -36,7 +37,6 @@
 - (void)setup
 {
     _checkButton = [[HBRadioButton alloc] init];
-    _checkButton.selected = YES;
     [_checkButton addTarget:self action:@selector(checkButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:_checkButton];
     
@@ -65,7 +65,6 @@
     [_passSegment insertSegmentWithTitle:@"同意" atIndex:0 animated:YES];
     [_passSegment insertSegmentWithTitle:@"不同意" atIndex:1 animated:YES];
     [_passSegment setTintColor:[UIColor grayColor]];
-    [_passSegment setSelectedSegmentIndex:0];
     [self.contentView addSubview:_passSegment];
     
     
@@ -94,13 +93,13 @@
     _moreButton.sd_layout
     .topSpaceToView(_dateLabel, 10)
     .leftEqualToView(_dateLabel)
-    .heightIs(20)
+    .heightIs(24)
     .widthIs(100);
     
     _passSegment.sd_layout
     .topSpaceToView(_dateLabel, 10)
     .rightEqualToView(_dateLabel)
-    .heightIs(20)
+    .heightIs(24)
     .widthIs(100);
     
     // 当你不确定哪个view在自动布局之后会排布在cell最下方的时候可以调用次方法将所有可能在最下方的view都传过去
@@ -113,6 +112,7 @@
 {
     _model = model;
     
+    self.checkButton.selected = model.selected;
     self.titleLabel.text = model.MaterialDesc;
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
@@ -122,18 +122,28 @@
         requestTypeDesc = [NSString stringWithFormat:@"%@[%@]", requestTypeDesc, model.MaterialCode];
     }
     self.typeLabel.text = requestTypeDesc;
+    if (model.IsAuditPass == 1) {
+        [self.passSegment setSelectedSegmentIndex:0];
+    }
+    else {
+        [self.passSegment setSelectedSegmentIndex:1];
+    }
+    
 }
 
 - (void)checkButtonClick:(HBRadioButton *)sender
 {
     sender.selected = !sender.selected;
+    self.model.selected = sender.selected;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-//    [super setSelected:selected animated:animated];
-//
-//    self.checkButton.selected = selected;
+    // 去掉选中状态
 }
 
+- (void)radioClick
+{
+    [self checkButtonClick:self.checkButton];
+}
 
 @end

@@ -21,4 +21,13 @@
     return oldValue;
 }
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        self.selected = YES;
+        self.IsAuditPass = 1;
+    }
+    return self;
+}
+
 @end

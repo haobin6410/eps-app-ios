@@ -10,6 +10,8 @@
 
 @interface HBPlanModel : NSObject
 
+@property (nonatomic, assign) BOOL selected;
+
 @property (nonatomic, assign) int PlanId;
 
 @property (nonatomic, strong) NSString *MaterialCode;

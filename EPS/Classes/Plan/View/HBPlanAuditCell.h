@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) HBPlanModel *model;
 
+- (void)radioClick;
+
 @end

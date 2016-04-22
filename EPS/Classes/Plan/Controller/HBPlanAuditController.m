@@ -154,6 +154,12 @@
     return width;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    HBPlanAuditCell *cell = (HBPlanAuditCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [cell radioClick];
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
