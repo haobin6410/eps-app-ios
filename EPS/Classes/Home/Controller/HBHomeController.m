@@ -16,6 +16,7 @@
 #import "HBProfileController.h"
 #import "HBPlanAuditController.h"
 #import "HBNavView.h"
+#import <UIView+SDAutoLayout.h>
 
 @interface HBHomeController() <HBNavViewDelegate>
 
@@ -72,17 +73,19 @@
 {
     // 1.添加内容View 可以上下滚动
     UIScrollView *contentView = [[UIScrollView alloc] init];
+    contentView.bounces = YES;
     CGFloat contentViewX = 0;
     CGFloat contentViewY = CGRectGetMaxY(self.navBar.frame);
     CGFloat contentViewW = self.view.frame.size.width;
-    CGFloat contentViewH = self.view.frame.size.height - contentViewY;
+    CGFloat contentViewH = self.view.frame.size.height - contentViewY - 44; //必须减去tabbar高度
     contentView.frame = CGRectMake(contentViewX, contentViewY, contentViewW, contentViewH);
     CGFloat menuBtnViewContentW = contentViewW;
 
     
     NSInteger menuBtnViewColumnCount = 3;
-    CGFloat menuBtnViewPadding = 30;
-    CGFloat menuBtnViewW = (contentViewW - menuBtnViewPadding * (menuBtnViewColumnCount + 1)) / menuBtnViewColumnCount;
+    CGFloat menuBtnViewPaddingTop = 10;
+    CGFloat menuBtnViewPaddingaLeft = 15;
+    CGFloat menuBtnViewW = (contentViewW - menuBtnViewPaddingaLeft * (menuBtnViewColumnCount + 1)) / menuBtnViewColumnCount;
     CGFloat menuBtnViewH = 120;
     for (int i = 0; i < self.menuArray.count; i++)
     {
@@ -90,8 +93,8 @@
         
         // 1.添加一个菜单按钮的View
         UIView *menuBtnView = [[UIView alloc] init];
-        CGFloat menuBtnViewX = menuBtnViewPadding + (i % menuBtnViewColumnCount) * (menuBtnViewW + menuBtnViewPadding);
-        CGFloat menuBtnViewY = menuBtnViewPadding + (i / menuBtnViewColumnCount) * (menuBtnViewH + menuBtnViewPadding);
+        CGFloat menuBtnViewX = menuBtnViewPaddingaLeft + (i % menuBtnViewColumnCount) * (menuBtnViewW + menuBtnViewPaddingaLeft);
+        CGFloat menuBtnViewY = menuBtnViewPaddingTop + (i / menuBtnViewColumnCount) * (menuBtnViewH + menuBtnViewPaddingTop);
         menuBtnView.frame = CGRectMake(menuBtnViewX, menuBtnViewY, menuBtnViewW, menuBtnViewH);
         //menuBtnView.backgroundColor = [UIColor greenColor];
         [contentView addSubview:menuBtnView];
@@ -122,8 +125,10 @@
     }
     
     // 内容View可以滚动的高度
-    CGFloat menuBtnViewContentH = CGRectGetMaxY([[[contentView subviews] lastObject] frame]) + menuBtnViewPadding;
+    UIView *lastView = [[contentView subviews] lastObject];
+    CGFloat menuBtnViewContentH = CGRectGetMaxY(lastView.frame) + menuBtnViewPaddingTop;
     contentView.contentSize = CGSizeMake(menuBtnViewContentW, menuBtnViewContentH);
+    
     [self.view addSubview:contentView];
 }
 

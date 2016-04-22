@@ -10,11 +10,20 @@
 #import "UIBarButtonItem+HB.h"
 #import "HBHttp.h"
 #import <MJRefresh.h>
+#import <MJExtension.h>
 #import "HBShow.h"
+#import "HBPlanAuditCell.h"
+#import "HBPlanModel.h"
+#import <UIView+SDAutoLayout.h>
+#import <UITableView+SDAutoTableViewCellHeight.h>
 
 @interface HBPlanAuditController ()
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
+
+@property (nonatomic, assign) long maxDate;
+
+@property (nonatomic, assign) int page;
 
 @end
 
@@ -30,53 +39,71 @@
 
 - (void)loadNewData
 {
-    [HBHttp GET:@"/api/plan/planaudit/" parameters:nil success:^(id responseObject) {
-        NSArray *objects = (NSArray *)responseObject;
-        NSRange range = NSMakeRange(0,  objects.count);
-        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
-        [self.dataArray insertObjects:objects atIndexes:indexSet];
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    self.maxDate = (long)[[NSDate date] timeIntervalSince1970];
+    self.page = 1;
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"page"] = @(self.page);
+    parameters[@"max_date"] = @(self.maxDate);
+    
+    [HBHttp GET:@"/api/plan/planaudit/" parameters:parameters success:^(id responseObject) {
+        NSArray *objects = [HBPlanModel mj_objectArrayWithKeyValuesArray:responseObject];
+//        NSRange range = NSMakeRange(0,  objects.count);
+//        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+//        [self.dataArray insertObjects:objects atIndexes:indexSet];
+
+        self.dataArray = [NSMutableArray array];
+        [self.dataArray addObjectsFromArray:objects];
         
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error) {
-        
+        [HBShow showFailure:[NSString stringWithFormat:@"%@", error]];
     }];
 }
 
 - (void)loadMoreData
 {
-    [HBHttp GET:@"/api/plan/planaudit/" parameters:nil success:^(id responseObject) {
-        [self.dataArray addObjectsFromArray:responseObject];
-        [self.tableView reloadData];
-        [self.tableView.mj_footer endRefreshing];
+    self.page += 1;
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"page"] = @(self.page);
+    parameters[@"max_date"] = @(self.maxDate);
+    
+    [HBHttp GET:@"/api/plan/planaudit/" parameters:parameters success:^(id responseObject) {
+        NSArray *objects = [HBPlanModel mj_objectArrayWithKeyValuesArray:responseObject];
+        if (objects != nil && objects.count > 0) {
+            [self.dataArray addObjectsFromArray:objects];
+            [self.tableView reloadData];
+            [self.tableView.mj_footer endRefreshing];
+        }
+        else {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
     } failure:^(NSError *error) {
-        
+        [HBShow showFailure:[NSString stringWithFormat:@"%@", error]];
     }];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [HBShow showFailure:@"成功了"];
+    [self.tableView registerClass:[HBPlanAuditCell class] forCellReuseIdentifier:NSStringFromClass([HBPlanAuditCell class])];
     
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    [self.tableView.mj_header beginRefreshing];
     
-    [header beginRefreshing];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     
-    self.tableView.mj_header = header;
-    
-    
-    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-    
-    self.tableView.mj_footer = footer;
-    
-    //NSLog(@"%@", self.dataArray);
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
     UIBarButtonItem *leftBarButtonItem = [UIBarButtonItem itemWithTitle:@"返回" icon:@"back-icon" hightIcon:@"back-icon-selected" target:self action:@selector(back:)];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    
+    UIBarButtonItem *rightBarButtonItem =[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStyleDone target:self action:nil];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
 }
 
 - (void)back:(id)sender{
@@ -85,7 +112,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -99,18 +125,32 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellid =@"plan_audit_cell_id";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
-    if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid];
-        
-        NSDictionary *dic = self.dataArray[indexPath.row];
-        cell.textLabel.text = dic[@"MaterialCode"];
-        cell.detailTextLabel.text = dic[@"MaterialDesc"];
-    }
     
+    HBPlanAuditCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HBPlanAuditCell class]) forIndexPath:indexPath];
+    
+    HBPlanModel *planModel = self.dataArray[indexPath.row];
+    cell.model = planModel;
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    HBPlanModel *planModel = self.dataArray[indexPath.row];
+    
+    // 推荐使用此普通简化版方法（一步设置搞定高度自适应，性能好，易用性好）
+    return [self.tableView cellHeightForIndexPath:indexPath model:planModel keyPath:@"model" cellClass:[HBPlanAuditCell class] contentViewWidth:[self cellContentViewWith]];
+}
+
+- (CGFloat)cellContentViewWith
+{
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    
+    // 适配ios7
+    if ([UIApplication sharedApplication].statusBarOrientation != UIInterfaceOrientationPortrait && [[UIDevice currentDevice].systemVersion floatValue] < 8) {
+        width = [UIScreen mainScreen].bounds.size.height;
+    }
+    return width;
 }
 
 /*

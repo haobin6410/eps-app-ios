@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		252405221CC7C0F10015CAB2 /* HBRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 252405211CC7C0F10015CAB2 /* HBRadioButton.m */; };
 		2552DB191CB8F47E00C4968A /* HBProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2552DB181CB8F47E00C4968A /* HBProfileController.m */; };
 		2552DB1C1CB91C6E00C4968A /* HBNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2552DB1B1CB91C6E00C4968A /* HBNavView.m */; };
 		2552DB231CBA837400C4968A /* HBTodoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2552DB201CBA837400C4968A /* HBTodoListController.m */; };
@@ -37,8 +38,12 @@
 		25D989421B7B297C009A561A /* 1ct-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25D9893D1B7B297C009A561A /* 1ct-regular.ttf */; };
 		25D989431B7B297C009A561A /* 1ct-regular.woff in Resources */ = {isa = PBXBuildFile; fileRef = 25D9893E1B7B297C009A561A /* 1ct-regular.woff */; };
 		25F704181B85E4F800E671D6 /* HBMenuArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F704171B85E4F800E671D6 /* HBMenuArray.m */; };
+		25F91EEE1CC50C9700A2A0B5 /* HBPlanAuditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F91EED1CC50C9700A2A0B5 /* HBPlanAuditCell.m */; };
+		25F91EF11CC512C100A2A0B5 /* HBPlanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F91EF01CC512C100A2A0B5 /* HBPlanModel.m */; };
 		25FAB31E1CBE7F5D00BBAE7D /* HBHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAB31D1CBE7F5D00BBAE7D /* HBHttp.m */; };
 		25FAB3211CBE7F9400BBAE7D /* HBShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAB3201CBE7F9400BBAE7D /* HBShow.m */; };
+		25FC4BEC1CC9110F00E87F25 /* UISwitch+HB.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC4BEB1CC9110F00E87F25 /* UISwitch+HB.m */; };
+		25FCD0EB1CC720F500AF97E4 /* HBPlanAssignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FCD0EA1CC720F500AF97E4 /* HBPlanAssignCell.m */; };
 		B2A6EC25D894A429C04EC865 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 336448725E03B2056109408C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		14534A0946D82C586456C691 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		252405201CC7C0F10015CAB2 /* HBRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBRadioButton.h; sourceTree = "<group>"; };
+		252405211CC7C0F10015CAB2 /* HBRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBRadioButton.m; sourceTree = "<group>"; };
 		2552DB171CB8F47E00C4968A /* HBProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBProfileController.h; sourceTree = "<group>"; };
 		2552DB181CB8F47E00C4968A /* HBProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBProfileController.m; sourceTree = "<group>"; };
 		2552DB1A1CB91C6E00C4968A /* HBNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBNavView.h; sourceTree = "<group>"; };
@@ -110,10 +117,18 @@
 		25D9893E1B7B297C009A561A /* 1ct-regular.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1ct-regular.woff"; sourceTree = "<group>"; };
 		25F704161B85E4F800E671D6 /* HBMenuArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBMenuArray.h; sourceTree = "<group>"; };
 		25F704171B85E4F800E671D6 /* HBMenuArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBMenuArray.m; sourceTree = "<group>"; };
+		25F91EEC1CC50C9700A2A0B5 /* HBPlanAuditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBPlanAuditCell.h; sourceTree = "<group>"; };
+		25F91EED1CC50C9700A2A0B5 /* HBPlanAuditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBPlanAuditCell.m; sourceTree = "<group>"; };
+		25F91EEF1CC512C100A2A0B5 /* HBPlanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBPlanModel.h; sourceTree = "<group>"; };
+		25F91EF01CC512C100A2A0B5 /* HBPlanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBPlanModel.m; sourceTree = "<group>"; };
 		25FAB31C1CBE7F5D00BBAE7D /* HBHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBHttp.h; sourceTree = "<group>"; };
 		25FAB31D1CBE7F5D00BBAE7D /* HBHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBHttp.m; sourceTree = "<group>"; };
 		25FAB31F1CBE7F9400BBAE7D /* HBShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBShow.h; sourceTree = "<group>"; };
 		25FAB3201CBE7F9400BBAE7D /* HBShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBShow.m; sourceTree = "<group>"; };
+		25FC4BEA1CC9110F00E87F25 /* UISwitch+HB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISwitch+HB.h"; sourceTree = "<group>"; };
+		25FC4BEB1CC9110F00E87F25 /* UISwitch+HB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISwitch+HB.m"; sourceTree = "<group>"; };
+		25FCD0E91CC720F500AF97E4 /* HBPlanAssignCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBPlanAssignCell.h; sourceTree = "<group>"; };
+		25FCD0EA1CC720F500AF97E4 /* HBPlanAssignCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBPlanAssignCell.m; sourceTree = "<group>"; };
 		336448725E03B2056109408C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE36AD022C2DAD492BC9DD1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +152,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2524051F1CC7C0CA0015CAB2 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				252405201CC7C0F10015CAB2 /* HBRadioButton.h */,
+				252405211CC7C0F10015CAB2 /* HBRadioButton.m */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
 		2552DB1D1CBA837400C4968A /* Todo */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +203,8 @@
 				2568730A1B4849E700708165 /* UIBarButtonItem+HB.m */,
 				2578F9B41B8485EB006D4F4D /* NSString+HB.h */,
 				2578F9B51B8485EB006D4F4D /* NSString+HB.m */,
+				25FC4BEA1CC9110F00E87F25 /* UISwitch+HB.h */,
+				25FC4BEB1CC9110F00E87F25 /* UISwitch+HB.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -187,8 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				256B113C1CBB46E500A986F2 /* Controller */,
-				256B113D1CBB46E500A986F2 /* Model */,
-				256B113E1CBB46E500A986F2 /* View */,
+				25F91EEA1CC50C6E00A2A0B5 /* Model */,
+				25F91EEB1CC50C6E00A2A0B5 /* View */,
 			);
 			path = Plan;
 			sourceTree = "<group>";
@@ -206,20 +232,6 @@
 				256B11511CBB483B00A986F2 /* HBPlanPriceController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		256B113D1CBB46E500A986F2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		256B113E1CBB46E500A986F2 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		256B113F1CBB46E500A986F2 /* Prcing */ = {
@@ -389,6 +401,7 @@
 		256E1DB91B45A07E0084EC78 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				2524051F1CC7C0CA0015CAB2 /* Control */,
 				25FAB31B1CBE7F3D00BBAE7D /* Libs */,
 				256873021B48243B00708165 /* Category */,
 				256E1DBA1B45A07E0084EC78 /* AppDelegate.h */,
@@ -481,6 +494,26 @@
 		25E452FE1CB8A5D000A46590 /* View */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		25F91EEA1CC50C6E00A2A0B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				25F91EEF1CC512C100A2A0B5 /* HBPlanModel.h */,
+				25F91EF01CC512C100A2A0B5 /* HBPlanModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		25F91EEB1CC50C6E00A2A0B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				25F91EEC1CC50C9700A2A0B5 /* HBPlanAuditCell.h */,
+				25F91EED1CC50C9700A2A0B5 /* HBPlanAuditCell.m */,
+				25FCD0E91CC720F500AF97E4 /* HBPlanAssignCell.h */,
+				25FCD0EA1CC720F500AF97E4 /* HBPlanAssignCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -578,6 +611,7 @@
 				TargetAttributes = {
 					256E1D8A1B4597640084EC78 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 92BC37UGG8;
 					};
 					256E1DA31B4597640084EC78 = {
 						CreatedOnToolsVersion = 6.2;
@@ -682,25 +716,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				256E1DCB1B45A6B40084EC78 /* HBTabBar.m in Sources */,
+				25F91EEE1CC50C9700A2A0B5 /* HBPlanAuditCell.m in Sources */,
 				256873071B48251500708165 /* UIImage+HB.m in Sources */,
 				2552DB1C1CB91C6E00C4968A /* HBNavView.m in Sources */,
 				256E1DC51B45A3C10084EC78 /* HBTabBarViewController.m in Sources */,
 				2568730B1B4849E700708165 /* UIBarButtonItem+HB.m in Sources */,
 				25A227E11CB7B3D00027BCE1 /* HBMenuButton.m in Sources */,
 				25FAB3211CBE7F9400BBAE7D /* HBShow.m in Sources */,
+				25FC4BEC1CC9110F00E87F25 /* UISwitch+HB.m in Sources */,
 				256E1DC81B45A4400084EC78 /* HBNavigationViewController.m in Sources */,
 				257CD20E1B7C25F6001059C3 /* HBIconButton.m in Sources */,
+				25F91EF11CC512C100A2A0B5 /* HBPlanModel.m in Sources */,
 				256E1DCE1B45A6F70084EC78 /* HBTabBarButton.m in Sources */,
 				256B114C1CBB47A800A986F2 /* HBPlanAssignController.m in Sources */,
 				2578F26A1B49303F00C9C4AD /* HBHomeController.m in Sources */,
 				2552DB191CB8F47E00C4968A /* HBProfileController.m in Sources */,
 				256E1DD11B45A75B0084EC78 /* HBBadgeButton.m in Sources */,
 				256E1DBE1B45A1020084EC78 /* main.m in Sources */,
+				25FCD0EB1CC720F500AF97E4 /* HBPlanAssignCell.m in Sources */,
 				256B11521CBB483B00A986F2 /* HBPlanPriceController.m in Sources */,
 				25F704181B85E4F800E671D6 /* HBMenuArray.m in Sources */,
 				2578F9B61B8485EB006D4F4D /* NSString+HB.m in Sources */,
 				2578F9B31B845A7C006D4F4D /* HBMenu.m in Sources */,
 				2552DB231CBA837400C4968A /* HBTodoListController.m in Sources */,
+				252405221CC7C0F10015CAB2 /* HBRadioButton.m in Sources */,
 				256B11491CBB473700A986F2 /* HBPlanAuditController.m in Sources */,
 				25FAB31E1CBE7F5D00BBAE7D /* HBHttp.m in Sources */,
 				256B114F1CBB47F400A986F2 /* HBPlanDisposeController.m in Sources */,
@@ -810,7 +849,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (S3RY9LN78U)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = EPS/Classes/Other/HB.pch;
 				INFOPLIST_FILE = EPS/Info.plist;
@@ -828,7 +868,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (S3RY9LN78U)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = EPS/Classes/Other/HB.pch;
 				INFOPLIST_FILE = EPS/Info.plist;

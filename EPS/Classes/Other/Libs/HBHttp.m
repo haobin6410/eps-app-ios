@@ -17,7 +17,8 @@
 
 + (NSString *)GetUrl:(NSString *)url
 {
-    NSString *host = @"http://119.57.160.154:8045";
+    //NSString *host = @"http://119.57.160.154:8045";
+    NSString *host = @"http://192.168.0.69:8045";
     
     if ([url hasPrefix:@"/"]) {
         return [NSString stringWithFormat:@"%@%@", host, url];
@@ -36,7 +37,7 @@
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    [manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (success) {
@@ -60,7 +61,7 @@
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    [manager POST:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (success) {
