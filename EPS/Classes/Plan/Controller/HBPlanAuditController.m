@@ -17,7 +17,7 @@
 #import <UIView+SDAutoLayout.h>
 #import <UITableView+SDAutoTableViewCellHeight.h>
 
-@interface HBPlanAuditController ()
+@interface HBPlanAuditController () <HBPlanAuditCellDelegate>
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
@@ -131,6 +131,8 @@
     
     HBPlanModel *planModel = self.dataArray[indexPath.row];
     cell.model = planModel;
+    cell.delegate = self;
+    cell.indexPath = indexPath;
     
     return cell;
 }
@@ -158,6 +160,12 @@
 {
     HBPlanAuditCell *cell = (HBPlanAuditCell *)[tableView cellForRowAtIndexPath:indexPath];
     [cell radioClick];
+}
+
+- (void)planAuditCell:(HBPlanAuditCell *)cell moreClick:(UIButton *)btn
+{
+    NSArray *indexPathArray = [NSArray arrayWithObject:cell.indexPath];
+    [self.tableView reloadRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 /*

@@ -24,7 +24,8 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        self.selected = YES;
+        self.isSelected = YES;
+        self.isShowMore = NO;
         self.IsAuditPass = 1;
     }
     return self;

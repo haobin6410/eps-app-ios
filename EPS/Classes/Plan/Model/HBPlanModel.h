@@ -10,7 +10,9 @@
 
 @interface HBPlanModel : NSObject
 
-@property (nonatomic, assign) BOOL selected;
+@property (nonatomic, assign) BOOL isSelected;
+
+@property (nonatomic, assign) BOOL isShowMore;
 
 @property (nonatomic, assign) int PlanId;
 

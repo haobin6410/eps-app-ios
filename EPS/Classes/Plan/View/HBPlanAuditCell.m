@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UILabel *dateLabel;
 @property (nonatomic, strong) UIButton *moreButton;
 @property (nonatomic, strong) UISegmentedControl *passSegment;
+@property (nonatomic, strong) UIView *moreView;
 
 @end
 
@@ -59,6 +60,7 @@
     [_moreButton setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
     _moreButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     _moreButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    [_moreButton addTarget:self action:@selector(moreButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:_moreButton];
     
     _passSegment = [[UISegmentedControl alloc] init];
@@ -66,6 +68,10 @@
     [_passSegment insertSegmentWithTitle:@"不同意" atIndex:1 animated:YES];
     [_passSegment setTintColor:[UIColor grayColor]];
     [self.contentView addSubview:_passSegment];
+    
+    _moreView = [[UIView alloc] init];
+    _moreView.backgroundColor = HBColor(245, 245, 245);
+    [self.contentView addSubview:_moreView];
     
     
     _checkButton.sd_layout
@@ -102,17 +108,23 @@
     .heightIs(24)
     .widthIs(100);
     
+    _moreView.sd_layout
+    .topSpaceToView(self.moreButton, 10)
+    .leftSpaceToView(self.contentView, 10)
+    .rightSpaceToView(self.contentView, 10)
+    .heightIs(150);
+    
     // 当你不确定哪个view在自动布局之后会排布在cell最下方的时候可以调用次方法将所有可能在最下方的view都传过去
     // [self setupAutoHeightWithBottomViewsArray:@[_titleLabel, _imageView] bottomMargin:margin];
     //[self setupAutoHeightWithBottomView:titleLabel bottomMargin:10];
-    [self setupAutoHeightWithBottomViewsArray:@[_checkButton, _passSegment] bottomMargin:10];
+    //[self setupAutoHeightWithBottomView:self.passSegment bottomMargin:10];
 }
 
 - (void)setModel:(HBPlanModel *)model
 {
     _model = model;
     
-    self.checkButton.selected = model.selected;
+    self.checkButton.selected = model.isSelected;
     self.titleLabel.text = model.MaterialDesc;
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
@@ -128,13 +140,20 @@
     else {
         [self.passSegment setSelectedSegmentIndex:1];
     }
-    
+    if (model.isShowMore == NO) {
+        self.moreView.hidden = YES;
+        [self setupAutoHeightWithBottomView:self.passSegment bottomMargin:10];
+    }
+    else {
+        self.moreView.hidden = NO;
+        [self setupAutoHeightWithBottomView:self.moreView bottomMargin:10];
+    }
 }
 
 - (void)checkButtonClick:(HBRadioButton *)sender
 {
     sender.selected = !sender.selected;
-    self.model.selected = sender.selected;
+    self.model.isSelected = sender.selected;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -144,6 +163,15 @@
 - (void)radioClick
 {
     [self checkButtonClick:self.checkButton];
+}
+
+- (void)moreButtonClick:(UIButton *)sender
+{
+    self.model.isShowMore = !self.model.isShowMore;
+    
+    if ([self.delegate respondsToSelector:@selector(planAuditCell:moreClick:)]) {
+        [self.delegate planAuditCell:self moreClick:sender];
+    }
 }
 
 @end
