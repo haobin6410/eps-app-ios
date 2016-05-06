@@ -17,13 +17,15 @@
 #import <UIView+SDAutoLayout.h>
 #import <UITableView+SDAutoTableViewCellHeight.h>
 
-@interface HBPlanAuditController () <HBPlanAuditCellDelegate>
+@interface HBPlanAuditController () <HBPlanAuditCellDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
 @property (nonatomic, assign) long maxDate;
 
 @property (nonatomic, assign) int page;
+
+@property (nonatomic, weak) UISearchBar *seachBar;
 
 @end
 
@@ -60,6 +62,8 @@
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer resetNoMoreData];
+        
+        [HBShow hide];
     } failure:^(NSError *error) {
         [HBShow showFailure:[NSString stringWithFormat:@"%@", error]];
     }];
@@ -105,6 +109,29 @@
     UIBarButtonItem *rightBarButtonItem =[[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStyleDone target:self action:nil];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
+    UISearchBar *searchBar = [[UISearchBar alloc] init];
+    searchBar.delegate = self;
+    searchBar.placeholder = @"输入物料信息";
+    searchBar.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 44);
+    self.tableView.tableHeaderView = searchBar;
+    self.seachBar = searchBar;
+    
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSString *searchText = [NSString stringWithFormat:@"正在查询[%@]", searchBar.text];
+    
+    [HBShow showMessage:searchText isAutoHide:NO];
+    
+    [self loadNewData];
+    
+    [searchBar resignFirstResponder];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.seachBar resignFirstResponder];
 }
 
 - (void)back:(id)sender{
@@ -158,8 +185,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HBPlanAuditCell *cell = (HBPlanAuditCell *)[tableView cellForRowAtIndexPath:indexPath];
-    [cell radioClick];
+    
 }
 
 - (void)planAuditCell:(HBPlanAuditCell *)cell moreClick:(UIButton *)btn

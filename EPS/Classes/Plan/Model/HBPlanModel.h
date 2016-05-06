@@ -54,4 +54,6 @@
 
 @property (nonatomic, strong) NSString *AuditDesc;
 
+@property (nonatomic, strong) NSString *MoreDesc;
+
 @end

@@ -19,6 +19,7 @@
 {
     NSString *host = @"http://119.57.160.154:8045";
     //NSString *host = @"http://192.168.0.69:8045";
+    //NSString *host = @"http://192.168.112.1:1004";
     
     if ([url hasPrefix:@"/"]) {
         return [NSString stringWithFormat:@"%@%@", host, url];

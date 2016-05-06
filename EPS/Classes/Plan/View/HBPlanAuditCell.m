@@ -12,6 +12,7 @@
 #import "HBRadioButton.h"
 #import "UISwitch+HB.h"
 #import "HBPlanAuditController.h"
+#import "HBPopupView.h"
 
 @interface HBPlanAuditCell()
 
@@ -21,7 +22,7 @@
 @property (nonatomic, strong) UILabel *dateLabel;
 @property (nonatomic, strong) UIButton *moreButton;
 @property (nonatomic, strong) UISegmentedControl *passSegment;
-@property (nonatomic, strong) UIView *moreView;
+@property (nonatomic, strong) HBPopupView *moreView;
 
 @end
 
@@ -37,88 +38,94 @@
 
 - (void)setup
 {
-    _checkButton = [[HBRadioButton alloc] init];
-    [_checkButton addTarget:self action:@selector(checkButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView addSubview:_checkButton];
+    int controlPadding = 10;
+    int moreButtonWidth = 100;
     
-    _dateLabel = [[UILabel alloc] init];
-    _dateLabel.textColor = [UIColor grayColor];
-    [self.contentView addSubview:_dateLabel];
+    // 选择
+    self.checkButton = [[HBRadioButton alloc] init];
+    [self.checkButton addTarget:self action:@selector(checkButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:self.checkButton];
     
-    _titleLabel = [[UILabel alloc] init];
-    _titleLabel.numberOfLines = 0;
-    [self.contentView addSubview:_titleLabel];
+    // 申请提交审核日期
+    self.dateLabel = [[UILabel alloc] init];
+    self.dateLabel.textColor = [UIColor grayColor];
+    [self.contentView addSubview:self.dateLabel];
+    
+    // 物料描述
+    self.titleLabel = [[UILabel alloc] init];
+    self.titleLabel.numberOfLines = 0;
+    [self.contentView addSubview:self.titleLabel];
 
-    _typeLabel = [[UILabel alloc] init];
-    _typeLabel.textColor = [UIColor grayColor];
-    [self.contentView addSubview:_typeLabel];
+    // 申请类型 物料编号
+    self.typeLabel = [[UILabel alloc] init];
+    self.typeLabel.textColor = [UIColor grayColor];
+    [self.contentView addSubview:self.typeLabel];
     
-    _moreButton = [[UIButton alloc] init];
-    [_moreButton setTitle:@"更多信息" forState:UIControlStateNormal];
-    [_moreButton setTitle:@"更多信息" forState:UIControlStateHighlighted];
-    [_moreButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [_moreButton setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
-    _moreButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    _moreButton.titleLabel.font = [UIFont systemFontOfSize:13];
-    [_moreButton addTarget:self action:@selector(moreButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView addSubview:_moreButton];
+    // 更多信息按钮
+    self.moreButton = [[UIButton alloc] init];
+    [self.moreButton setTitle:@"更多信息" forState:UIControlStateNormal];
+    [self.moreButton setTitle:@"更多信息" forState:UIControlStateHighlighted];
+    [self.moreButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [self.moreButton setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
+    self.moreButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    self.moreButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    [self.moreButton addTarget:self action:@selector(moreButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:self.moreButton];
     
-    _passSegment = [[UISegmentedControl alloc] init];
-    [_passSegment insertSegmentWithTitle:@"同意" atIndex:0 animated:YES];
-    [_passSegment insertSegmentWithTitle:@"不同意" atIndex:1 animated:YES];
-    [_passSegment setTintColor:[UIColor grayColor]];
-    [self.contentView addSubview:_passSegment];
+    // 是否同意
+    self.passSegment = [[UISegmentedControl alloc] init];
+    [self.passSegment insertSegmentWithTitle:@"同意" atIndex:0 animated:YES];
+    [self.passSegment insertSegmentWithTitle:@"不同意" atIndex:1 animated:YES];
+    [self.passSegment setTintColor:[UIColor grayColor]];
+    [self.contentView addSubview:self.passSegment];
     
-    _moreView = [[UIView alloc] init];
-    _moreView.backgroundColor = HBColor(245, 245, 245);
-    [self.contentView addSubview:_moreView];
+    // 更多信息内容
+    CGPoint pPoint = CGPointMake(60, 0);
+    self.moreView = [HBPopupView popupViewWithPoint:pPoint direction:PopupViewDirectionBottom borderColor:HBColor(164, 164, 164) backgroundColor:HBColor(245, 245, 245)];
+    self.moreView.textColor = [UIColor grayColor];
+    self.moreView.textFont = [UIFont systemFontOfSize:16];
+    [self.contentView addSubview:self.moreView];
     
+    self.checkButton.sd_layout
+    .topSpaceToView(self.contentView, controlPadding)
+    .leftSpaceToView(self.contentView, controlPadding);
     
-    _checkButton.sd_layout
-    .topSpaceToView(self.contentView, 10)
-    .leftSpaceToView(self.contentView, 10);
-    
-    _titleLabel.sd_layout
-    .topSpaceToView(self.contentView, 10)
-    .leftSpaceToView(_checkButton, 10)
-    .rightSpaceToView(self.contentView, 10)
+    self.titleLabel.sd_layout
+    .topSpaceToView(self.contentView, controlPadding)
+    .leftSpaceToView(self.checkButton, controlPadding)
+    .rightSpaceToView(self.contentView, controlPadding)
     .autoHeightRatio(0);
     
-    _typeLabel.sd_layout
-    .topSpaceToView(_titleLabel, 10)
-    .leftEqualToView(_titleLabel)
-    .widthRatioToView(_titleLabel, 1)
+    self.typeLabel.sd_layout
+    .topSpaceToView(self.titleLabel, controlPadding)
+    .leftEqualToView(self.titleLabel)
+    .widthRatioToView(self.titleLabel, 1)
     .autoHeightRatio(0);
     
-    _dateLabel.sd_layout
-    .topSpaceToView(_typeLabel, 10)
-    .leftEqualToView(_titleLabel)
-    .widthRatioToView(_titleLabel, 1)
+    self.dateLabel.sd_layout
+    .topSpaceToView(self.typeLabel, controlPadding)
+    .leftEqualToView(self.titleLabel)
+    .widthRatioToView(self.titleLabel, 1)
     .autoHeightRatio(0);
     
-    _moreButton.sd_layout
-    .topSpaceToView(_dateLabel, 10)
-    .leftEqualToView(_dateLabel)
+    self.moreButton.sd_layout
+    .topSpaceToView(self.dateLabel, controlPadding)
+    .leftEqualToView(self.dateLabel)
+    .heightIs(24)
+    .widthIs(moreButtonWidth);
+    
+    self.passSegment.sd_layout
+    .topSpaceToView(self.dateLabel, controlPadding)
+    .rightEqualToView(self.dateLabel)
     .heightIs(24)
     .widthIs(100);
     
-    _passSegment.sd_layout
-    .topSpaceToView(_dateLabel, 10)
-    .rightEqualToView(_dateLabel)
-    .heightIs(24)
-    .widthIs(100);
-    
-    _moreView.sd_layout
-    .topSpaceToView(self.moreButton, 10)
-    .leftSpaceToView(self.contentView, 10)
-    .rightSpaceToView(self.contentView, 10)
-    .heightIs(150);
-    
-    // 当你不确定哪个view在自动布局之后会排布在cell最下方的时候可以调用次方法将所有可能在最下方的view都传过去
-    // [self setupAutoHeightWithBottomViewsArray:@[_titleLabel, _imageView] bottomMargin:margin];
-    //[self setupAutoHeightWithBottomView:titleLabel bottomMargin:10];
-    //[self setupAutoHeightWithBottomView:self.passSegment bottomMargin:10];
+    self.moreView.sd_layout
+    .topSpaceToView(self.moreButton, 0)
+    .leftEqualToView(self.checkButton)
+    .rightEqualToView(self.passSegment);
 }
+
 
 - (void)setModel:(HBPlanModel *)model
 {
@@ -140,6 +147,7 @@
     else {
         [self.passSegment setSelectedSegmentIndex:1];
     }
+    self.moreView.text = @"物料类型：\r\n物料组：";
     if (model.isShowMore == NO) {
         self.moreView.hidden = YES;
         [self setupAutoHeightWithBottomView:self.passSegment bottomMargin:10];

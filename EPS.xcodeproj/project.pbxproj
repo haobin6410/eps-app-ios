@@ -42,6 +42,7 @@
 		25F91EF11CC512C100A2A0B5 /* HBPlanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F91EF01CC512C100A2A0B5 /* HBPlanModel.m */; };
 		25FAB31E1CBE7F5D00BBAE7D /* HBHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAB31D1CBE7F5D00BBAE7D /* HBHttp.m */; };
 		25FAB3211CBE7F9400BBAE7D /* HBShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAB3201CBE7F9400BBAE7D /* HBShow.m */; };
+		25FC04251CCBAB3B0099DBC4 /* HBPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC04241CCBAB3B0099DBC4 /* HBPopupView.m */; };
 		25FC4BEC1CC9110F00E87F25 /* UISwitch+HB.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC4BEB1CC9110F00E87F25 /* UISwitch+HB.m */; };
 		25FCD0EB1CC720F500AF97E4 /* HBPlanAssignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FCD0EA1CC720F500AF97E4 /* HBPlanAssignCell.m */; };
 		B2A6EC25D894A429C04EC865 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 336448725E03B2056109408C /* libPods.a */; };
@@ -125,6 +126,8 @@
 		25FAB31D1CBE7F5D00BBAE7D /* HBHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBHttp.m; sourceTree = "<group>"; };
 		25FAB31F1CBE7F9400BBAE7D /* HBShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBShow.h; sourceTree = "<group>"; };
 		25FAB3201CBE7F9400BBAE7D /* HBShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBShow.m; sourceTree = "<group>"; };
+		25FC04231CCBAB3B0099DBC4 /* HBPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBPopupView.h; sourceTree = "<group>"; };
+		25FC04241CCBAB3B0099DBC4 /* HBPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBPopupView.m; sourceTree = "<group>"; };
 		25FC4BEA1CC9110F00E87F25 /* UISwitch+HB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISwitch+HB.h"; sourceTree = "<group>"; };
 		25FC4BEB1CC9110F00E87F25 /* UISwitch+HB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISwitch+HB.m"; sourceTree = "<group>"; };
 		25FCD0E91CC720F500AF97E4 /* HBPlanAssignCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBPlanAssignCell.h; sourceTree = "<group>"; };
@@ -157,6 +160,8 @@
 			children = (
 				252405201CC7C0F10015CAB2 /* HBRadioButton.h */,
 				252405211CC7C0F10015CAB2 /* HBRadioButton.m */,
+				25FC04231CCBAB3B0099DBC4 /* HBPopupView.h */,
+				25FC04241CCBAB3B0099DBC4 /* HBPopupView.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -743,6 +748,7 @@
 				25FAB31E1CBE7F5D00BBAE7D /* HBHttp.m in Sources */,
 				256B114F1CBB47F400A986F2 /* HBPlanDisposeController.m in Sources */,
 				256E1DBC1B45A07E0084EC78 /* AppDelegate.m in Sources */,
+				25FC04251CCBAB3B0099DBC4 /* HBPopupView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

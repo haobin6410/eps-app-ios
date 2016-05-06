@@ -31,4 +31,9 @@
     return self;
 }
 
+- (void)mj_keyValuesDidFinishConvertingToObject
+{
+    self.MoreDesc = [NSString stringWithFormat:@"物料类型：%d\r\n物料组：%d\r\n计划状态：%d", self.MaterialClassId, self.MaterialGroupId, self.PlanStatus];
+}
+
 @end

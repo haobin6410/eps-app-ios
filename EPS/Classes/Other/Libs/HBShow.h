@@ -16,6 +16,9 @@
 + (void)showFailure:(NSString *)failure;
 + (void)showFailure:(NSString *)failure toView:(UIView *)view;
 
++ (void)showMessage:(NSString *)message isAutoHide:(BOOL)isAutoHide;
++ (void)showMessage:(NSString *)message toView:(UIView *)view isAutoHide:(BOOL)isAutoHide;
+
 + (void)hide;
 + (void)hideForView:(UIView *)view;
 @end

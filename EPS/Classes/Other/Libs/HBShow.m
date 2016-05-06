@@ -47,12 +47,12 @@
     [self show:failure icon:@"error.png" view:view];
 }
 
-+ (void)showMessage:(NSString *)message
++ (void)showMessage:(NSString *)message isAutoHide:(BOOL)isAutoHide
 {
-    [self showMessage:message toView:nil];
+    [self showMessage:message toView:nil isAutoHide:isAutoHide];
 }
 
-+ (void)showMessage:(NSString *)message toView:(UIView *)view {
++ (void)showMessage:(NSString *)message toView:(UIView *)view isAutoHide:(BOOL)isAutoHide {
     if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
@@ -61,8 +61,10 @@
     hud.removeFromSuperViewOnHide = YES;
     // YES代表需要蒙版效果
     hud.dimBackground = YES;
-    // 1秒之后再消失
-    [hud hide:YES afterDelay:0.7];
+    if (isAutoHide) {
+        // 1秒之后再消失
+        [hud hide:YES afterDelay:0.7];
+    }
 }
 
 + (void)hide
