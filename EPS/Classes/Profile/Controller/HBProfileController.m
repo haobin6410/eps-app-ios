@@ -123,6 +123,17 @@
     return cell.frame.size.height;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 2) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:nil forKey:HBLoginKey];
+        [defaults synchronize];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

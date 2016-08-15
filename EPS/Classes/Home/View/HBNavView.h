@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HBUser.h"
 
 @protocol HBNavViewDelegate <NSObject>
 
@@ -16,6 +17,8 @@
 @end
 
 @interface HBNavView : UIView
+
+@property (nonatomic, strong) HBUser *user;
 
 @property (nonatomic, assign) id<HBNavViewDelegate> delegate;
 

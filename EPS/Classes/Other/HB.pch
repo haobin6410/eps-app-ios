@@ -32,4 +32,7 @@
 #define HBLog(...)
 #endif
 
+
+#define HBLoginKey @"LoginKey"
+
 #endif

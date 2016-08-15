@@ -49,6 +49,7 @@
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"page"] = @(self.page);
     parameters[@"max_date"] = @(self.maxDate);
+    parameters[@"material_desc"] = self.seachBar.text;
     
     [HBHttp GET:@"/api/plan/planaudit/" parameters:parameters success:^(id responseObject) {
         NSArray *objects = [HBPlanModel mj_objectArrayWithKeyValuesArray:responseObject];
@@ -76,6 +77,7 @@
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"page"] = @(self.page);
     parameters[@"max_date"] = @(self.maxDate);
+    parameters[@"material_desc"] = self.seachBar.text;
     
     [HBHttp GET:@"/api/plan/planaudit/" parameters:parameters success:^(id responseObject) {
         NSArray *objects = [HBPlanModel mj_objectArrayWithKeyValuesArray:responseObject];

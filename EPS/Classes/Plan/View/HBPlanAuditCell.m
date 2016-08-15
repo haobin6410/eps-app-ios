@@ -16,13 +16,13 @@
 
 @interface HBPlanAuditCell()
 
-@property (nonatomic, strong) HBRadioButton *checkButton;
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UILabel *typeLabel;
-@property (nonatomic, strong) UILabel *dateLabel;
-@property (nonatomic, strong) UIButton *moreButton;
-@property (nonatomic, strong) UISegmentedControl *passSegment;
-@property (nonatomic, strong) HBPopupView *moreView;
+@property (nonatomic, weak) HBRadioButton *checkButton;
+@property (nonatomic, weak) UILabel *titleLabel;
+@property (nonatomic, weak) UILabel *typeLabel;
+@property (nonatomic, weak) UILabel *dateLabel;
+@property (nonatomic, weak) UIButton *moreButton;
+@property (nonatomic, weak) UISegmentedControl *passSegment;
+@property (nonatomic, weak) HBPopupView *moreView;
 
 @end
 
@@ -42,49 +42,56 @@
     int moreButtonWidth = 100;
     
     // 选择
-    self.checkButton = [[HBRadioButton alloc] init];
-    [self.checkButton addTarget:self action:@selector(checkButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView addSubview:self.checkButton];
+    HBRadioButton *checkButton = [[HBRadioButton alloc] init];
+    [checkButton addTarget:self action:@selector(checkButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:checkButton];
+    self.checkButton = checkButton;
     
     // 申请提交审核日期
-    self.dateLabel = [[UILabel alloc] init];
-    self.dateLabel.textColor = [UIColor grayColor];
-    [self.contentView addSubview:self.dateLabel];
+    UILabel *dateLabel = [[UILabel alloc] init];
+    dateLabel.textColor = [UIColor grayColor];
+    [self.contentView addSubview:dateLabel];
+    self.dateLabel = dateLabel;
     
     // 物料描述
-    self.titleLabel = [[UILabel alloc] init];
-    self.titleLabel.numberOfLines = 0;
-    [self.contentView addSubview:self.titleLabel];
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.numberOfLines = 0;
+    [self.contentView addSubview:titleLabel];
+    self.titleLabel = titleLabel;
 
     // 申请类型 物料编号
-    self.typeLabel = [[UILabel alloc] init];
-    self.typeLabel.textColor = [UIColor grayColor];
-    [self.contentView addSubview:self.typeLabel];
+    UILabel *typeLabel = [[UILabel alloc] init];
+    typeLabel.textColor = [UIColor grayColor];
+    [self.contentView addSubview:typeLabel];
+    self.typeLabel = typeLabel;
     
     // 更多信息按钮
-    self.moreButton = [[UIButton alloc] init];
-    [self.moreButton setTitle:@"更多信息" forState:UIControlStateNormal];
-    [self.moreButton setTitle:@"更多信息" forState:UIControlStateHighlighted];
-    [self.moreButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [self.moreButton setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
-    self.moreButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    self.moreButton.titleLabel.font = [UIFont systemFontOfSize:13];
-    [self.moreButton addTarget:self action:@selector(moreButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView addSubview:self.moreButton];
+    UIButton *moreButton = [[UIButton alloc] init];
+    [moreButton setTitle:@"更多信息" forState:UIControlStateNormal];
+    [moreButton setTitle:@"更多信息" forState:UIControlStateHighlighted];
+    [moreButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [moreButton setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
+    moreButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    moreButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    [moreButton addTarget:self action:@selector(moreButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:moreButton];
+    self.moreButton = moreButton;
     
     // 是否同意
-    self.passSegment = [[UISegmentedControl alloc] init];
-    [self.passSegment insertSegmentWithTitle:@"同意" atIndex:0 animated:YES];
-    [self.passSegment insertSegmentWithTitle:@"不同意" atIndex:1 animated:YES];
-    [self.passSegment setTintColor:[UIColor grayColor]];
-    [self.contentView addSubview:self.passSegment];
+    UISegmentedControl *passSegment = [[UISegmentedControl alloc] init];
+    [passSegment insertSegmentWithTitle:@"同意" atIndex:0 animated:YES];
+    [passSegment insertSegmentWithTitle:@"不同意" atIndex:1 animated:YES];
+    [passSegment setTintColor:[UIColor grayColor]];
+    [self.contentView addSubview:passSegment];
+    self.passSegment = passSegment;
     
     // 更多信息内容
     CGPoint pPoint = CGPointMake(60, 0);
-    self.moreView = [HBPopupView popupViewWithPoint:pPoint direction:PopupViewDirectionBottom borderColor:HBColor(164, 164, 164) backgroundColor:HBColor(245, 245, 245)];
-    self.moreView.textColor = [UIColor grayColor];
-    self.moreView.textFont = [UIFont systemFontOfSize:16];
-    [self.contentView addSubview:self.moreView];
+    HBPopupView *moreView = [HBPopupView popupViewWithPoint:pPoint direction:PopupViewDirectionBottom borderColor:HBColor(164, 164, 164) backgroundColor:HBColor(245, 245, 245)];
+    moreView.textColor = [UIColor grayColor];
+    moreView.textFont = [UIFont systemFontOfSize:16];
+    [self.contentView addSubview:moreView];
+    self.moreView = moreView;
     
     self.checkButton.sd_layout
     .topSpaceToView(self.contentView, controlPadding)

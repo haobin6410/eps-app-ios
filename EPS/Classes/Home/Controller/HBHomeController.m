@@ -17,10 +17,15 @@
 #import "HBPlanAuditController.h"
 #import "HBNavView.h"
 #import <UIView+SDAutoLayout.h>
+#import "HBLoginController.h"
+#import "HBUser.h"
+#import "HBMenuView.h"
 
-@interface HBHomeController() <HBNavViewDelegate>
+@interface HBHomeController() <HBNavViewDelegate, HBMenuViewDelegate>
 
-@property (nonatomic, weak)UIView *navBar;
+@property (nonatomic, weak)HBNavView *navBar;
+@property (nonatomic, weak)HBMenuView *menuView;
+@property (nonatomic, weak)NSTimer *timer;
 
 @property (nonatomic, strong)NSArray *menuArray;
 
@@ -37,6 +42,22 @@
     return _menuArray;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:HBLoginKey] == nil) {
+        [self presentViewController:[[HBLoginController alloc] init] animated:YES completion:nil];
+    }
+    else {
+        self.navBar.user = [HBUser user];
+        self.menuView.menuArray = [HBMenuArray menuArray];
+        
+        [self refreshMenuButtonBadge];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -49,6 +70,32 @@
     
     // 初始化菜单按钮
     [self setupMenuButton];
+    
+    // 定时器 定时刷新菜单按钮气泡
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(refreshMenuButtonBadge) userInfo:nil repeats:YES];
+    // 定时器异步 其它操作不阻塞定时器
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    [timer fire];
+    self.timer = timer;
+}
+
+- (void)dealloc
+{
+    // 销毁定时器
+    [self.timer invalidate];
+}
+
+// 刷新菜单按钮气泡
+- (void)refreshMenuButtonBadge
+{
+    for (UIView *view in self.menuView.subviews) {
+        for(UIView *btn in view.subviews){
+            if ([btn isKindOfClass:[HBMenuButton class]]) {
+                HBMenuButton *menuBtn = (HBMenuButton *)btn;
+                menuBtn.badgeValue = [NSString stringWithFormat:@"%d", arc4random() % 100];
+            }
+        }
+    }
 }
 
 - (void)setupNavBar
@@ -63,7 +110,7 @@
     navBar.delegate = self;
 }
 
-- (void)navViewClick:(__autoreleasing id *)navView
+- (void)navViewClick:(id *)navView
 {
     HBProfileController *profileController = [[HBProfileController alloc] initWithStyle:UITableViewStyleGrouped];
     [self.navigationController pushViewController:profileController animated:YES];
@@ -71,78 +118,28 @@
 
 - (void)setupMenuButton
 {
-    // 1.添加内容View 可以上下滚动
-    UIScrollView *contentView = [[UIScrollView alloc] init];
-    contentView.bounces = YES;
     CGFloat contentViewX = 0;
     CGFloat contentViewY = CGRectGetMaxY(self.navBar.frame);
     CGFloat contentViewW = self.view.frame.size.width;
     CGFloat contentViewH = self.view.frame.size.height - contentViewY - 44; //必须减去tabbar高度
-    contentView.frame = CGRectMake(contentViewX, contentViewY, contentViewW, contentViewH);
-    CGFloat menuBtnViewContentW = contentViewW;
-
-    
-    NSInteger menuBtnViewColumnCount = 3;
-    CGFloat menuBtnViewPaddingTop = 10;
-    CGFloat menuBtnViewPaddingaLeft = 15;
-    CGFloat menuBtnViewW = (contentViewW - menuBtnViewPaddingaLeft * (menuBtnViewColumnCount + 1)) / menuBtnViewColumnCount;
-    CGFloat menuBtnViewH = 120;
-    for (int i = 0; i < self.menuArray.count; i++)
-    {
-        HBMenu *menu = self.menuArray[i];
-        
-        // 1.添加一个菜单按钮的View
-        UIView *menuBtnView = [[UIView alloc] init];
-        CGFloat menuBtnViewX = menuBtnViewPaddingaLeft + (i % menuBtnViewColumnCount) * (menuBtnViewW + menuBtnViewPaddingaLeft);
-        CGFloat menuBtnViewY = menuBtnViewPaddingTop + (i / menuBtnViewColumnCount) * (menuBtnViewH + menuBtnViewPaddingTop);
-        menuBtnView.frame = CGRectMake(menuBtnViewX, menuBtnViewY, menuBtnViewW, menuBtnViewH);
-        //menuBtnView.backgroundColor = [UIColor greenColor];
-        [contentView addSubview:menuBtnView];
-        
-        // 2.添加菜单
-        HBMenuButton *menuButton = [[HBMenuButton alloc] init];
-        [menuButton setTitle:menu.title forState:UIControlStateNormal];
-        [menuButton setTitle:menu.title forState:UIControlStateHighlighted];
-        [menuButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [menuButton setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
-        
-        [menuButton setIcon:menu.pic forState:UIControlStateNormal];
-        [menuButton setIcon:menu.pic forState:UIControlStateHighlighted];
-        [menuButton setIconColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [menuButton setIconColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
-        
-        CGFloat menuButtonX = 0;
-        CGFloat menuButtonY = 0;
-        CGFloat menuButtonW = menuBtnViewW;
-        CGFloat menuButtonH = menuBtnViewH;
-        menuButton.frame = CGRectMake(menuButtonX, menuButtonY, menuButtonW, menuButtonH);
-        
-        menuButton.btnCode = menu.code;
-        menuButton.badgeValue = @"10";
-        
-        [menuButton addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
-        [menuBtnView addSubview:menuButton];
-    }
-    
-    // 内容View可以滚动的高度
-    UIView *lastView = [[contentView subviews] lastObject];
-    CGFloat menuBtnViewContentH = CGRectGetMaxY(lastView.frame) + menuBtnViewPaddingTop;
-    contentView.contentSize = CGSizeMake(menuBtnViewContentW, menuBtnViewContentH);
-    
-    [self.view addSubview:contentView];
+    CGRect menuViewFrame = CGRectMake(contentViewX, contentViewY, contentViewW, contentViewH);
+    HBMenuView *menuView = [HBMenuView menuViewWithFrame:menuViewFrame];
+    menuView.menuViewDelegate = self;
+    [self.view addSubview:menuView];
+    self.menuView = menuView;
 }
 
-- (void)menuClick:(HBMenuButton *)menuBtn
+- (void)menuButtonClick:(HBMenuButton *)menuButton
 {
-    if ([menuBtn.btnCode isEqual: @"icon_ApplyAudit"]) {
+    if ([menuButton.btnCode isEqual: @"icon_ApplyAudit"]) {
         HBPlanAuditController *planAuditController = [[HBPlanAuditController alloc] init];
-        planAuditController.title = menuBtn.titleLabel.text;
+        planAuditController.title = menuButton.titleLabel.text;
         [self.navigationController pushViewController:planAuditController animated:YES];
     }
     else
     {
         HBTodoListController *todoListController = [[HBTodoListController alloc] init];
-        todoListController.title = menuBtn.titleLabel.text;
+        todoListController.title = menuButton.titleLabel.text;
         [self.navigationController pushViewController:todoListController animated:YES];
     }
 }

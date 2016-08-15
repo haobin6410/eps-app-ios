@@ -8,6 +8,7 @@
 
 #import "HBMenuArray.h"
 #import "HBMenu.h"
+#import "HBUser.h"
 
 @implementation HBMenuArray
 
@@ -15,38 +16,57 @@
 {
     NSMutableArray *mArray = [NSMutableArray array];
     
+    HBUser *user = [HBUser user];
+    
     HBMenu *menu = nil;
 
-    menu = [HBMenu menuWithCode:@"icon_ApplyAudit" title:@"计划审批" pic:@"\U0000e2a5"];
-    [mArray addObject:menu];
+    if ([user.menuCodeArray indexOfObject:@"icon_ApplyAudit"] != NSNotFound) {
+        menu = [HBMenu menuWithCode:@"icon_ApplyAudit" title:@"计划审批" pic:@"\U0000e2a5"];
+        [mArray addObject:menu];
+    }
     
-    menu = [HBMenu menuWithCode:@"icon_ApplySend" title:@"待分派计划" pic:@"\U0000e2a2"];
-    [mArray addObject:menu];
+    if ([user.menuCodeArray indexOfObject:@"icon_ApplySend"] != NSNotFound) {
+        menu = [HBMenu menuWithCode:@"icon_ApplySend" title:@"待分派计划" pic:@"\U0000e2a2"];
+        [mArray addObject:menu];
+    }
 
-    menu = [HBMenu menuWithCode:@"icon_ApplyHandle" title:@"待处理计划" pic:@"\U0000e2a3"];
-    [mArray addObject:menu];
+    if ([user.menuCodeArray indexOfObject:@"icon_ApplyHandle"] != NSNotFound) {
+        menu = [HBMenu menuWithCode:@"icon_ApplyHandle" title:@"待处理计划" pic:@"\U0000e2a3"];
+        [mArray addObject:menu];
+    }
 
-    menu = [HBMenu menuWithCode:@"icon_ApplyPrice" title:@"待定价计划" pic:@"\U0000e2a4"];
-    [mArray addObject:menu];
+    if ([user.menuCodeArray indexOfObject:@"icon_ApplyPrice"] != NSNotFound) {
+        menu = [HBMenu menuWithCode:@"icon_ApplyPrice" title:@"待定价计划" pic:@"\U0000e2a4"];
+        [mArray addObject:menu];
+    }
     
-    menu = [HBMenu menuWithCode:@"icon_Check" title:@"单据审批" pic:@"\U0000e0a2"];
-    [mArray addObject:menu];
+    if ([user.menuCodeArray indexOfObject:@"icon_Check"] != NSNotFound) {
+        menu = [HBMenu menuWithCode:@"icon_Check" title:@"单据审批" pic:@"\U0000e0a2"];
+        [mArray addObject:menu];
+    }
     
-    menu = [HBMenu menuWithCode:@"icon_ProjectBid" title:@"招标项目" pic:@"\U0000e4a2"];
-    [mArray addObject:menu];
+    if ([user.menuCodeArray indexOfObject:@"icon_ProjectBid"] != NSNotFound) {
+        menu = [HBMenu menuWithCode:@"icon_ProjectBid" title:@"招标项目" pic:@"\U0000e4a2"];
+        [mArray addObject:menu];
+    }
 
-    menu = [HBMenu menuWithCode:@"icon_ProjectQuery" title:@"询价项目" pic:@"\U0000e4a3"];
-    [mArray addObject:menu];
+    if ([user.menuCodeArray indexOfObject:@"icon_ProjectQuery"] != NSNotFound) {
+        menu = [HBMenu menuWithCode:@"icon_ProjectQuery" title:@"询价项目" pic:@"\U0000e4a3"];
+        [mArray addObject:menu];
+    }
 
 //    menu = [HBMenu menuWithCode:@"icon_ProjectCompete" title:@"竞价项目" pic:@"\U0000e4a4"];
 //    [mArray addObject:menu];
 
-    
-    menu = [HBMenu menuWithCode:@"icon_SupplierReg" title:@"供应商准入" pic:@"\U0000e1a2"];
-    [mArray addObject:menu];
+    if ([user.menuCodeArray indexOfObject:@"icon_SupplierReg"] != NSNotFound) {
+        menu = [HBMenu menuWithCode:@"icon_SupplierReg" title:@"供应商准入" pic:@"\U0000e1a2"];
+        [mArray addObject:menu];
+    }
 
-    menu = [HBMenu menuWithCode:@"icon_SupplierInfo" title:@"供应商信息变更" pic:@"\U0000e1a3"];
-    [mArray addObject:menu];
+    if ([user.menuCodeArray indexOfObject:@"icon_SupplierInfo"] != NSNotFound) {
+        menu = [HBMenu menuWithCode:@"icon_SupplierInfo" title:@"供应商信息变更" pic:@"\U0000e1a3"];
+        [mArray addObject:menu];
+    }
     
     
 //    menu = [HBMenu menuWithCode:@"icon_Briefcase" title:@"日常办公" pic:@"\U0000e0a1"];

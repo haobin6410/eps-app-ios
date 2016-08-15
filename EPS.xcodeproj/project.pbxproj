@@ -38,10 +38,13 @@
 		25D989421B7B297C009A561A /* 1ct-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25D9893D1B7B297C009A561A /* 1ct-regular.ttf */; };
 		25D989431B7B297C009A561A /* 1ct-regular.woff in Resources */ = {isa = PBXBuildFile; fileRef = 25D9893E1B7B297C009A561A /* 1ct-regular.woff */; };
 		25F704181B85E4F800E671D6 /* HBMenuArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F704171B85E4F800E671D6 /* HBMenuArray.m */; };
+		25F8D7431CE4CAB600D11EED /* HBMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F8D7421CE4CAB600D11EED /* HBMenuView.m */; };
 		25F91EEE1CC50C9700A2A0B5 /* HBPlanAuditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F91EED1CC50C9700A2A0B5 /* HBPlanAuditCell.m */; };
 		25F91EF11CC512C100A2A0B5 /* HBPlanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F91EF01CC512C100A2A0B5 /* HBPlanModel.m */; };
 		25FAB31E1CBE7F5D00BBAE7D /* HBHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAB31D1CBE7F5D00BBAE7D /* HBHttp.m */; };
 		25FAB3211CBE7F9400BBAE7D /* HBShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAB3201CBE7F9400BBAE7D /* HBShow.m */; };
+		25FABE951CE3671600863D46 /* HBLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FABE941CE3671600863D46 /* HBLoginController.m */; };
+		25FABE981CE37C6D00863D46 /* HBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FABE971CE37C6D00863D46 /* HBUser.m */; };
 		25FC04251CCBAB3B0099DBC4 /* HBPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC04241CCBAB3B0099DBC4 /* HBPopupView.m */; };
 		25FC4BEC1CC9110F00E87F25 /* UISwitch+HB.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC4BEB1CC9110F00E87F25 /* UISwitch+HB.m */; };
 		25FCD0EB1CC720F500AF97E4 /* HBPlanAssignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FCD0EA1CC720F500AF97E4 /* HBPlanAssignCell.m */; };
@@ -118,6 +121,8 @@
 		25D9893E1B7B297C009A561A /* 1ct-regular.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1ct-regular.woff"; sourceTree = "<group>"; };
 		25F704161B85E4F800E671D6 /* HBMenuArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBMenuArray.h; sourceTree = "<group>"; };
 		25F704171B85E4F800E671D6 /* HBMenuArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBMenuArray.m; sourceTree = "<group>"; };
+		25F8D7411CE4CAB600D11EED /* HBMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBMenuView.h; sourceTree = "<group>"; };
+		25F8D7421CE4CAB600D11EED /* HBMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBMenuView.m; sourceTree = "<group>"; };
 		25F91EEC1CC50C9700A2A0B5 /* HBPlanAuditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBPlanAuditCell.h; sourceTree = "<group>"; };
 		25F91EED1CC50C9700A2A0B5 /* HBPlanAuditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBPlanAuditCell.m; sourceTree = "<group>"; };
 		25F91EEF1CC512C100A2A0B5 /* HBPlanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBPlanModel.h; sourceTree = "<group>"; };
@@ -126,6 +131,10 @@
 		25FAB31D1CBE7F5D00BBAE7D /* HBHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBHttp.m; sourceTree = "<group>"; };
 		25FAB31F1CBE7F9400BBAE7D /* HBShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBShow.h; sourceTree = "<group>"; };
 		25FAB3201CBE7F9400BBAE7D /* HBShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBShow.m; sourceTree = "<group>"; };
+		25FABE931CE3671600863D46 /* HBLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBLoginController.h; sourceTree = "<group>"; };
+		25FABE941CE3671600863D46 /* HBLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBLoginController.m; sourceTree = "<group>"; };
+		25FABE961CE37C6D00863D46 /* HBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HBUser.h; path = ../../Profile/Model/HBUser.h; sourceTree = "<group>"; };
+		25FABE971CE37C6D00863D46 /* HBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HBUser.m; path = ../../Profile/Model/HBUser.m; sourceTree = "<group>"; };
 		25FC04231CCBAB3B0099DBC4 /* HBPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBPopupView.h; sourceTree = "<group>"; };
 		25FC04241CCBAB3B0099DBC4 /* HBPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBPopupView.m; sourceTree = "<group>"; };
 		25FC4BEA1CC9110F00E87F25 /* UISwitch+HB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISwitch+HB.h"; sourceTree = "<group>"; };
@@ -386,6 +395,8 @@
 		256E1DB61B45A07E0084EC78 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				25FABE931CE3671600863D46 /* HBLoginController.h */,
+				25FABE941CE3671600863D46 /* HBLoginController.m */,
 				2578F2681B49303F00C9C4AD /* HBHomeController.h */,
 				2578F2691B49303F00C9C4AD /* HBHomeController.m */,
 			);
@@ -395,6 +406,8 @@
 		256E1DB71B45A07E0084EC78 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				25FABE961CE37C6D00863D46 /* HBUser.h */,
+				25FABE971CE37C6D00863D46 /* HBUser.m */,
 				25F704161B85E4F800E671D6 /* HBMenuArray.h */,
 				25F704171B85E4F800E671D6 /* HBMenuArray.m */,
 				2578F9B11B845A7C006D4F4D /* HBMenu.h */,
@@ -543,6 +556,8 @@
 				25A227E01CB7B3CE0027BCE1 /* HBMenuButton.m */,
 				2552DB1A1CB91C6E00C4968A /* HBNavView.h */,
 				2552DB1B1CB91C6E00C4968A /* HBNavView.m */,
+				25F8D7411CE4CAB600D11EED /* HBMenuView.h */,
+				25F8D7421CE4CAB600D11EED /* HBMenuView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -731,7 +746,9 @@
 				256E1DC81B45A4400084EC78 /* HBNavigationViewController.m in Sources */,
 				257CD20E1B7C25F6001059C3 /* HBIconButton.m in Sources */,
 				25F91EF11CC512C100A2A0B5 /* HBPlanModel.m in Sources */,
+				25FABE981CE37C6D00863D46 /* HBUser.m in Sources */,
 				256E1DCE1B45A6F70084EC78 /* HBTabBarButton.m in Sources */,
+				25FABE951CE3671600863D46 /* HBLoginController.m in Sources */,
 				256B114C1CBB47A800A986F2 /* HBPlanAssignController.m in Sources */,
 				2578F26A1B49303F00C9C4AD /* HBHomeController.m in Sources */,
 				2552DB191CB8F47E00C4968A /* HBProfileController.m in Sources */,
@@ -749,6 +766,7 @@
 				256B114F1CBB47F400A986F2 /* HBPlanDisposeController.m in Sources */,
 				256E1DBC1B45A07E0084EC78 /* AppDelegate.m in Sources */,
 				25FC04251CCBAB3B0099DBC4 /* HBPopupView.m in Sources */,
+				25F8D7431CE4CAB600D11EED /* HBMenuView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

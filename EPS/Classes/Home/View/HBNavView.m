@@ -10,6 +10,10 @@
 
 @interface HBNavView()
 
+@property (nonatomic, weak) UILabel *companyLabel;
+@property (nonatomic, weak) UILabel *employeeLabel;
+@property (nonatomic, weak) UILabel *postLabel;
+
 @end
 
 @implementation HBNavView
@@ -24,18 +28,19 @@
 
         // 1.添加公司名称label
         UILabel *companyLabel = [[UILabel alloc] init];
-        companyLabel.text = @"北京一采通信息科技有限公司";
         companyLabel.textColor = [UIColor whiteColor];
         companyLabel.font = [UIFont systemFontOfSize:16];
+        companyLabel.textAlignment = NSTextAlignmentCenter;
 
         NSMutableDictionary *companyFontAttrDic = [NSMutableDictionary dictionary];
         companyFontAttrDic[NSFontAttributeName] = companyLabel.font;
-        CGFloat companyLabelW = [companyLabel.text sizeWithAttributes:companyFontAttrDic].width;
-        CGFloat companyLabelX = (navBarW - companyLabelW) * 0.5;
+        CGFloat companyLabelW = navBarW;
+        CGFloat companyLabelX = 0;
         CGFloat companyLabelY = 20;
         CGFloat companyLabelH = 30;
         companyLabel.frame = CGRectMake(companyLabelX, companyLabelY, companyLabelW, companyLabelH);
         [self addSubview:companyLabel];
+        self.companyLabel = companyLabel;
 
         // 2.添加用户信息
         UIView *userView = [[UIView alloc] init];
@@ -62,31 +67,31 @@
 
         // 2.2.添加员工名称
         UILabel *nameLabel = [[UILabel alloc] init];
-        nameLabel.text = @"郝斌";
         nameLabel.textColor = [UIColor whiteColor];
         nameLabel.font = [UIFont systemFontOfSize:15];
+        self.employeeLabel = nameLabel;
 
         NSMutableDictionary *nameFontAttrDic = [NSMutableDictionary dictionary];
         nameFontAttrDic[NSFontAttributeName] = nameLabel.font;
-        CGFloat nameLabelW = [nameLabel.text sizeWithAttributes:nameFontAttrDic].width;
         CGFloat nameLabelX = CGRectGetMaxX(userPhoto.frame) + userViewBorderX;
         CGFloat nameLabelY = userPhotoY + 10;
         CGFloat nameLabelH = 26;
+        CGFloat nameLabelW = navBarW - nameLabelX;
         nameLabel.frame = CGRectMake(nameLabelX, nameLabelY, nameLabelW, nameLabelH);
         [userView addSubview:nameLabel];
 
         // 2.3.添加业务角色名称
         UILabel *roleLabel = [[UILabel alloc] init];
-        roleLabel.text = @"采购部 > 价格科";
         roleLabel.textColor = [UIColor whiteColor];
         roleLabel.font = [UIFont systemFontOfSize:14];
+        self.postLabel = roleLabel;
 
         NSMutableDictionary *roleFontAttrDic = [NSMutableDictionary dictionary];
         roleFontAttrDic[NSFontAttributeName] = roleLabel.font;
-        CGFloat roleLabelW = [roleLabel.text sizeWithAttributes:roleFontAttrDic].width;
         CGFloat roleLabelX = nameLabelX;
         CGFloat roleLabelY = CGRectGetMaxY(nameLabel.frame);
         CGFloat roleLabelH = 24;
+        CGFloat roleLabelW = navBarW - roleLabelX;
         roleLabel.frame = CGRectMake(roleLabelX, roleLabelY, roleLabelW, roleLabelH);
         [userView addSubview:roleLabel];
 
@@ -113,6 +118,15 @@
         
     }
     return self;
+}
+
+- (void)setUser:(HBUser *)user
+{
+    _user = user;
+    
+    self.companyLabel.text = user.companyName;
+    self.employeeLabel.text = user.employeeName;
+    self.postLabel.text = user.postName;
 }
 
 - (void)singleTap:(id *)sender
